@@ -8,27 +8,33 @@
                 <td>
                     <div>
                         <p>inserisci il nome</p> <br>
-                        <input type="text"> <br>
+                        <input type="text" ip="InputNome"> <br>
                         <p>inserisci il cognome</p> <br>
-                        <input type="text"> <br>
+                        <input type="text" ip="InputCognome"> <br>
                         <p>inserisci l'indirizzo</p> <br>
-                        <input type="text">
+                        <input type="text" ip="InputIndirizzo"> <br>
+                        <input type="button" onclick="PrintData">
                     </div>
                 </td>  
                 <td>
                     <div>
-                        <p> </p>
-                        <p> </p>
-                        <p> </p>
-                        <p> </p>
-                        <p> </p>
+                        <p id="PrintNome"> </p> <br>
+                        <p id="PrintCognome"> </p> <br>
+                        <p id="PrintIndirizzo"> </p>
                     </div>
                 </td>
             </tr>      
         </table>  
 
         <script>
-
+            function PrintData() {
+                var GetNome = document.GetElementById(InputNome);
+                document.GetElementById(PrintNome).innerHTML = GetNome;
+                var GetCognome = document.GetElementById(InputCognome);
+                document.GetElementById(PrintCognome).innerHTML = GetCognome;
+                var GetIndirizzo = document.GetElementById(InputIndirizzo);
+                document.GetElementById(PrintIndirizzo).innerHTML = GetIndirizzo;
+            }    
         </script>
     </body>
 </html>
