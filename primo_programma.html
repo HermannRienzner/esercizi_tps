@@ -13,7 +13,7 @@
                         <input type="text" ip="InputCognome"> <br>
                         <p>inserisci l'indirizzo</p> <br>
                         <input type="text" ip="InputIndirizzo"> <br>
-                        <input type="button" onclick="PrintData" value="Cliccami">
+                        <input type="button"  value="Cliccami" onclick="PrintData()">
                     </div>
                 </td>  
                 <td>
@@ -28,13 +28,12 @@
 
         <script>
             function PrintData() {
-                var GetNome = document.GetElementById(InputNome);
-                document.GetElementById(PrintNome).innerHTML = GetNome;
-                var GetCognome = document.GetElementById(InputCognome);
-                document.GetElementById(PrintCognome).innerHTML = GetCognome;
-                var GetIndirizzo = document.GetElementById(InputIndirizzo);
-                document.GetElementById(PrintIndirizzo).innerHTML = GetIndirizzo;
-                return PrintNome, PrintCognome, PrintIndirizzo;
+                var GetNome = document.getElementById(InputNome).value;
+                document.getElementById(PrintNome).innerHTML = GetNome;
+                var GetCognome = document.getElementById(InputCognome).value;
+                document.getElementById(PrintCognome).innerHTML = GetCognome;
+                var GetIndirizzo = document.getElementById(InputIndirizzo).value;
+                document.getElementById(PrintIndirizzo).innerHTML = GetIndirizzo;
             }    
         </script>
     </body>
