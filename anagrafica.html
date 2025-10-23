@@ -17,6 +17,21 @@
                 document.getElementById("OutCap").innerHTML = GetCAP;
                 GetComple = document.getElementById("comple").value;
                 document.getElementById("OutComple").innerHTML = GetComple;
+                switch(document.getElementById("comple").value){
+                    case document.getElementById("comple").value > 2013:
+                        document.getElementById("OutGenerazione").innerHTML = "generazione alpha";
+                    case document.getElementById("comple").value > 1997:
+                        document.getElementById("OutGenerazione").innerHTML = "generazione z";
+                    case document.getElementById("comple").value > 1981:
+                        document.getElementById("OutGenerazione").innerHTML = "generazione millenials";
+                    case document.getElementById("comple").value > 1965:
+                        document.getElementById("OutGenerazione").innerHTML = "generazione x";
+                    case document.getElementById("comple").value > 1946:
+                        document.getElementById("OutGenerazione").innerHTML = "generazione baby boomers";
+                    case document.getElementById("comple").value > 1928:
+                        document.getElementById("OutGenerazione").innerHTML = "generazione silenizosa";  
+                    break                   
+                }
             }
         </script>
         <table>  
@@ -35,7 +50,7 @@
                         <input type="text">
                         <p id="comple">inserisci l'anno di nascita </p>
                         <input type="text">
-                        <input type="button" onclick="anagrafe()">
+                        <input type="button" value="Cliccami" onclick="anagrafe()">
                     </div>
                 </td>  
                 <td>
@@ -46,6 +61,7 @@
                         <p id="OutCittà"> </p>
                         <p id="OutCAP"> </p>
                         <p id="OutComple"> </p>
+                        <p id="OutGenerazione"> </p>
                     </div>
                 </td>
             </tr>      
