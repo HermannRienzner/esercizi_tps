@@ -4,35 +4,48 @@
     </head>
     <body>
         <script>
-            void function(){
-
+            void function anagrafe(){
+                GetNome = document.getElementById("nome").value;
+                document.getElementById("OutNome").innerHTML = GetNome;
+                GetCognome = document.getElementById("cognome").value;
+                document.getElementById("OutCognome").innerHTML = GetCognome;
+                GetIndirizzo = document.getElementById("indirizzo").value;
+                document.getElementById("OutIndirizzo").innerHTML = GetIndirizzo;
+                GetCittà = document.getElementById("città").value;
+                document.getElementById("OutCittà").innerHTML = GetCittà;
+                GetCAP = document.getElementById("CAP").value;
+                document.getElementById("OutCap").innerHTML = GetCAP;
+                GetComple = document.getElementById("comple").value;
+                document.getElementById("OutComple").innerHTML = GetComple;
             }
         </script>
         <table>  
             <tr>
                 <td>
                     <div>
-                        <p>inserisci il nome</p>
+                        <p id="nome">inserisci il nome</p>
                         <input type="text">
-                        <p>inserisci il cognome</p>
+                        <p id="cognome">inserisci il cognome</p>
                         <input type="text">
-                        <p>inserisci l'indirizzo</p>
+                        <p id="indirizzo">inserisci l'indirizzo</p>
                         <input type="text">
-                        <p>inserisci la città</p>
+                        <p id="città">inserisci la città</p>
                         <input type="text">
-                        <p>inserisci il CAP </p>
+                        <p id="CAP">inserisci il CAP </p>
                         <input type="text">
-                        <p>inserisci l'anno di nascita </p>
+                        <p id="comple">inserisci l'anno di nascita </p>
                         <input type="text">
+                        <input type="button" onclick="anagrafe()">
                     </div>
                 </td>  
                 <td>
                     <div>
-                        <p> </p>
-                        <p> </p>
-                        <p> </p>
-                        <p> </p>
-                        <p> </p>
+                        <p id="OutNome"> </p>
+                        <p id="OutCognome"> </p>
+                        <p id="OutIndirizzo"> </p>
+                        <p id="OutCittà"> </p>
+                        <p id="OutCAP"> </p>
+                        <p id="OutComple"> </p>
                     </div>
                 </td>
             </tr>      
