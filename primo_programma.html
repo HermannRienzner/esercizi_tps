@@ -4,13 +4,13 @@
     </head>
     <body>
         <script>
-            void function PrintData() {
-                GetNome = document.getElementById(InputNome).value;
-                document.getElementById(PrintNome).innerHTML = GetNome;
-                GetCognome = document.getElementById(InputCognome).value;
-                document.getElementById(PrintCognome).innerHTML = GetCognome;
-                GetIndirizzo = document.getElementById(InputIndirizzo).value;
-                document.getElementById(PrintIndirizzo).innerHTML = GetIndirizzo;
+            function PrintData() {
+                GetNome = document.getElementById("InputNome").value;
+                document.getElementById("PrintNome").innerHTML = GetNome;
+                GetCognome = document.getElementById("InputCognome").value;
+                document.getElementById("PrintCognome").innerHTML = GetCognome;
+                GetIndirizzo = document.getElementById("InputIndirizzo").value;
+                document.getElementById("PrintIndirizzo").innerHTML = GetIndirizzo;
             }    
         </script>
         <table>  
@@ -18,11 +18,11 @@
                 <td>
                     <div>
                         <p>inserisci il nome</p> <br>
-                        <input type="text" ip="InputNome"> <br>
+                        <input type="text" id="InputNome"> <br>
                         <p>inserisci il cognome</p> <br>
-                        <input type="text" ip="InputCognome"> <br>
+                        <input type="text" id="InputCognome"> <br>
                         <p>inserisci l'indirizzo</p> <br>
-                        <input type="text" ip="InputIndirizzo"> <br>
+                        <input type="text" id="InputIndirizzo"> <br>
                         <input type="button"  value="Cliccami" onclick="PrintData()">
                     </div>
                 </td>  
