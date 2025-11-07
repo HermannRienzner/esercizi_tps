@@ -6,10 +6,11 @@
   </head>
   <body>
     <div>
+      <p id="out_array"> </p>
       <p id="out_media"> </p>
       <p id="out_massimo"> </p>
       <p id="out_minimo"> </p>
-      <p id="out_array"> </p>
+      <p id="out_array50"> </p>
     </div>
     <script>
       let array = [];
@@ -39,11 +40,11 @@
         }
       }
       somma /= 100;
-      
+      document.getElementById("out_array").innerHTML="l'array completo é: " + array;
       document.getElementById("out_media").innerHTML = "la media è: " + somma;
       document.getElementById("out_minimo").innerHTML = "il numero minimo è: " + min;
       document.getElementById("out_massimo").innerHTML = "il numero massimo è: " + max;
-      document.getElementById("out_array").innerHTML = "i numeri superiori a 50 sono: " + array50;
+      document.getElementById("out_array50").innerHTML = "i numeri superiori a 50 sono: " + array50;
     </script>
   </body>
 </html>
