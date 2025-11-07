@@ -6,9 +6,44 @@
   </head>
   <body>
     <div>
-      <p></p>
-      <p></p>
-      <p></p>
+      <p id="out_media"> </p>
+      <p id="out_massimo"> </p>
+      <p id="out_minimo"> </p>
+      <p id="out_array"> </p>
     </div>
+    <script>
+      let array = [];
+      array.length = 100;
+      let array50 = [];
+      let max = 0;
+      let min = 0;
+      let somma = 0;
+      for (let i = 0; i < array.length; i++){
+        
+        let n = Math.floor(Math.random()*200 + 1) -100;
+        array[i] = n;
+        somma += n;
+        
+        if(array[i] > 50) {
+          array50.push(n);
+        }
+        if(max == 0 && min == 0) {
+          max = n;
+          min = n;
+        }
+        else if (n > max) {
+          max = n;
+        }
+        else if (n < min){
+          min = n;
+        }
+      }
+      somma /= 100;
+      
+      document.getElementById("out_media").innerHTML = somma;
+      document.getElementById("out_minimo").innerHTML = min;
+      document.getElementById("out_massimo").innerHTML = max;
+      document.getElementById("out_array").innerHTML = array50;
+    </script>
   </body>
 </html>
