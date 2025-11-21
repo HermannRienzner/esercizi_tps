@@ -17,7 +17,9 @@
                 document.getElementById("OutCap").innerHTML = GetCAP;
                 GetComple = document.getElementById("comple").value;
                 document.getElementById("OutComple").innerHTML = GetComple;
-                switch(document.getElementById("comple").value){
+                GetProvincia =  document.GetElementById("provincia").value;
+                document.getElementById("OutProvincia").innerHTML=GetProvincia;
+                switch(true){
                     case document.getElementById("comple").value > 2013:
                         document.getElementById("OutGenerazione").innerHTML = "generazione alpha";
                     break 
@@ -37,24 +39,43 @@
                         document.getElementById("OutGenerazione").innerHTML = "generazione silenizosa";  
                     break                   
                 }
+                for(let i = 0; i<getElementById("genere").length; i++){
+                    if(document.getElementById("genere")[i].checked){
+                        document.getElementById("OutGenere").innerHTML = document.getElementById("genere")[i].value;
+                    }
+                }
             }
         </script>
         <table style="width: 100%;">  
             <tr>
                 <td style="text-align: left;">
                     <div>
-                        <p id="nome">inserisci il nome</p>
-                        <input type="text">
-                        <p id="cognome">inserisci il cognome</p>
-                        <input type="text">
-                        <p id="indirizzo">inserisci l'indirizzo</p>
-                        <input type="text">
-                        <p id="città">inserisci la città</p>
-                        <input type="text">
-                        <p id="CAP">inserisci il CAP </p>
-                        <input type="text">
-                        <p id="comple">inserisci l'anno di nascita </p>
-                        <input type="text">
+                        <p >inserisci il nome</p>
+                        <input type="text" id="nome">
+
+                        <p >inserisci il cognome</p>
+                        <input type="text" id="cognome">
+
+                        <p>inserisci il genere</p> 
+                        <input type="radio" name= "genere" value="uomo">
+                        <input type="radio" name= "genere" value="donna">
+                        <input type="radio" name= "genere" value="preferisco non specificarlo">
+
+                        <p>inserisci la provincia</p>
+                        <input type="text" id="provincia">
+
+                        <p >inserisci la città</p>
+                        <input type="text" id="città">
+
+                        <p >inserisci l'indirizzo</p>
+                        <input type="text" id="indirizzo">
+
+                        <p >inserisci il CAP </p>
+                        <input type="text" id="CAP">
+
+                        <p >inserisci l'anno di nascita </p>
+                        <input type="text" id="comple">
+
                         <input type="button" value="Cliccami" onclick="anagrafe()">
                     </div>
                 </td>  
@@ -62,11 +83,13 @@
                     <div>
                         <p id="OutNome"> </p>
                         <p id="OutCognome"> </p>
-                        <p id="OutIndirizzo"> </p>
+                        <p id="OutProvincia"></p>
                         <p id="OutCittà"> </p>
+                        <p id="OutIndirizzo"> </p>
                         <p id="OutCAP"> </p>
                         <p id="OutComple"> </p>
                         <p id="OutGenerazione"> </p>
+                        <p id="OutGenere"></p>
                     </div>
                 </td>
             </tr>      
