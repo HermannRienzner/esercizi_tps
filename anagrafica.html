@@ -5,7 +5,6 @@
     <body>
         <script>
             let CheckArray = new Array();
-            CheckArray[3] = "fine";
             function CheckFunction(risposta){
                 let trovato = false;
                 for (let j = 0; j < CheckArray.length; j++){
@@ -19,7 +18,7 @@
                 }
                 return(CheckArray);
             }
-            mezzo = CheckFunction("fine");            
+
             function anagrafe(trasporto){
                 let GetNome = document.getElementById("nome").value;
                 document.getElementById("OutNome").innerHTML = GetNome;
@@ -121,7 +120,7 @@
                         <p >inserisci l'anno di nascita </p>
                         <input type="number" id="comple">
 
-                        <input type="button" value="Cliccami" onclick="anagrafe(mezzo)">
+                        <input type="button" value="Cliccami" onclick="anagrafe(CheckArray)">
                         
                     </div>
                 </td>  
