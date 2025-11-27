@@ -19,7 +19,7 @@
                 }
                 return(CheckArray);
             }
-            let mezzo = CheckFunction("fine");            
+            mezzo = CheckFunction("fine");            
             function anagrafe(trasporto){
                 let GetNome = document.getElementById("nome").value;
                 document.getElementById("OutNome").innerHTML = GetNome;
@@ -121,7 +121,7 @@
                         <p >inserisci l'anno di nascita </p>
                         <input type="number" id="comple">
 
-                        <input type="button" value="Cliccami" onclick="anagrafe()">
+                        <input type="button" value="Cliccami" onclick="anagrafe(mezzo)">
                         
                     </div>
                 </td>  
