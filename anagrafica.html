@@ -14,10 +14,10 @@
                 GetCittà = document.getElementById("città").value;
                 document.getElementById("OutCittà").innerHTML = GetCittà;
                 GetCAP = document.getElementById("CAP").value;
-                document.getElementById("OutCap").innerHTML = GetCAP;
+                document.getElementById("OutCAP").innerHTML = GetCAP;
                 GetComple = document.getElementById("comple").value;
                 document.getElementById("OutComple").innerHTML = GetComple;
-                GetProvincia = document.GetElementById("provincia").value;
+                GetProvincia = document.getElementById("provincia").value;
                 document.getElementById("OutProvincia").innerHTML=GetProvincia;
                 switch(true){
                     case document.getElementById("comple").value > 2013:
@@ -39,9 +39,9 @@
                         document.getElementById("OutGenerazione").innerHTML = "generazione silenizosa";  
                     break                   
                 }
-                for(let i = 0; i<getElementsById("genere").length; i++){
-                    if(document.getElementsById("genere")[i].checked){
-                        document.getElementById("OutGenere").innerHTML = document.getElementsById("genere")[i].value;
+                for(let i = 0; i<getElementsByName("genere").length; i++){
+                    if(document.getElementsByName("genere")[i].checked){
+                        document.getElementById("OutGenere").innerHTML = document.getElementsByName("genere")[i].value;
                     }
                 }
             }
