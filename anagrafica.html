@@ -4,9 +4,9 @@
     </head>
     <body>
         <script>
+            let CheckArray = new Array();
+            CheckArray[3] = "fine";
             function CheckFunction(risposta){
-                let CheckArray = new array();
-                CheckArray[3] = "fine";
                 let trovato = false;
                 for (let j = 0; j < CheckArray.length; j++){
                     if(CheckArray[j] == risposta){
@@ -15,36 +15,36 @@
                     }
                 }
                 if(trovato == false){
-                    CheckArray.push("risposta");
+                    CheckArray.push(risposta);
                 }
                 return(CheckArray);
             }
             let mezzo = CheckFunction("fine");            
             function anagrafe(trasporto){
-                GetNome = document.getElementById("nome").value;
+                let GetNome = document.getElementById("nome").value;
                 document.getElementById("OutNome").innerHTML = GetNome;
                 
-                GetCognome = document.getElementById("cognome").value;
+                let GetCognome = document.getElementById("cognome").value;
                 document.getElementById("OutCognome").innerHTML = GetCognome;
                 
-                GetIndirizzo = document.getElementById("indirizzo").value;
+                let GetIndirizzo = document.getElementById("indirizzo").value;
                 document.getElementById("OutIndirizzo").innerHTML = GetIndirizzo;
                 
-                GetCittà = document.getElementById("città").value;
+                let GetCittà = document.getElementById("città").value;
                 document.getElementById("OutCittà").innerHTML = GetCittà;
                 
-                GetCAP = document.getElementById("CAP").value;
+                let GetCAP = document.getElementById("CAP").value;
                 document.getElementById("OutCAP").innerHTML = GetCAP;
                 
-                GetComple = document.getElementById("comple").value;
+                let GetComple = document.getElementById("comple").value;
                 document.getElementById("OutComple").innerHTML = GetComple;
                 
-                GetProvincia = document.getElementById("provincia").value;
+                let GetProvincia = document.getElementById("provincia").value;
                 document.getElementById("OutProvincia").innerHTML=GetProvincia;
 
-                GetMezzo = trasporto;
+                let GetMezzo = trasporto;
                 for(let k = 0; k<trasporto.length -1; k++){
-                    document.getElementById("OutMezzo") += trasporto[i] + " ,";
+                    document.getElementById("OutMezzo").innerHTML += trasporto[k] + ", ";
                 }
                 
                 switch(true){
@@ -121,7 +121,7 @@
                         <p >inserisci l'anno di nascita </p>
                         <input type="number" id="comple">
 
-                        <input type="button" value="Cliccami" onclick="anagrafe(mezzo)">
+                        <input type="button" value="Cliccami" onclick="anagrafe()">
                         
                     </div>
                 </td>  
