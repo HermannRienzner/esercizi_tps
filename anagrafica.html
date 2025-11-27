@@ -46,7 +46,7 @@
                         document.getElementById("OutGenerazione").innerHTML = "generazione silenizosa";  
                     break                   
                 }
-                for(let i = 0; i<getElementsByName("genere").length; i++){
+                for(let i = 0; i< document.getElementsByName("genere").length; i++){
                     if(document.getElementsByName("genere")[i].checked){
                         document.getElementById("OutGenere").innerHTML = document.getElementsByName("genere")[i].value;
                     }
