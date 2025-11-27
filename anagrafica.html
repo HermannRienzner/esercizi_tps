@@ -7,18 +7,25 @@
             function anagrafe(){
                 GetNome = document.getElementById("nome").value;
                 document.getElementById("OutNome").innerHTML = GetNome;
+                
                 GetCognome = document.getElementById("cognome").value;
                 document.getElementById("OutCognome").innerHTML = GetCognome;
+                
                 GetIndirizzo = document.getElementById("indirizzo").value;
                 document.getElementById("OutIndirizzo").innerHTML = GetIndirizzo;
+                
                 GetCittà = document.getElementById("città").value;
                 document.getElementById("OutCittà").innerHTML = GetCittà;
+                
                 GetCAP = document.getElementById("CAP").value;
                 document.getElementById("OutCAP").innerHTML = GetCAP;
+                
                 GetComple = document.getElementById("comple").value;
                 document.getElementById("OutComple").innerHTML = GetComple;
+                
                 GetProvincia = document.getElementById("provincia").value;
                 document.getElementById("OutProvincia").innerHTML=GetProvincia;
+                
                 switch(true){
                     case document.getElementById("comple").value > 2013:
                         document.getElementById("OutGenerazione").innerHTML = "generazione alpha";
