@@ -10,7 +10,13 @@
                 for (let j = 0; j < CheckArray.length; j++){
                     if(CheckArray[j] == risposta){
                         trovato = true;
-                        CheckArray[j] = null;
+                        if(j == CheckArray.length -1) {
+                            CheckArray.pop();
+                        }
+                        else{
+                            CheckArray[j] = CheckArray[CheckArray.length -1];
+                            CheckArray.pop()
+                        }
                     }
                 }
                 if(trovato == false){
