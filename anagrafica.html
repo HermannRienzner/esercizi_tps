@@ -4,7 +4,23 @@
     </head>
     <body>
         <script>
-            function anagrafe(){
+            function CheckFunction(risposta){
+                let CheckArray = new array();
+                CheckArray[3] = "fine";
+                let trovato = false;
+                for (let j = 0; j < CheckArray.length; j++){
+                    if(CheckArray[j] == risposta){
+                        trovato = true;
+                        CheckArray[j] = null;
+                    }
+                }
+                if(trovato == false){
+                    CheckArray.push("risposta");
+                }
+                return(CheckArray);
+            }
+            let mezzo = CheckFunction("fine");            
+            function anagrafe(trasporto){
                 GetNome = document.getElementById("nome").value;
                 document.getElementById("OutNome").innerHTML = GetNome;
                 
@@ -25,6 +41,11 @@
                 
                 GetProvincia = document.getElementById("provincia").value;
                 document.getElementById("OutProvincia").innerHTML=GetProvincia;
+
+                GetMezzo = trasporto;
+                for(let k = 0; k<trasporto.length -1; k++){
+                    document.getElementById("OutMezzo") += trasporto[i];
+                }
                 
                 switch(true){
                     case document.getElementById("comple").value > 2013:
@@ -52,6 +73,9 @@
                     }
                 }
             }
+
+            
+
         </script>
         <table style="width: 100%;">  
             <tr>
@@ -82,13 +106,22 @@
                         <p >inserisci il CAP </p>
                         <input type="number" id="CAP">
 
-                        <p>inserisci i mezzi che possiedi </p>
-                        
+                        <div>
+                            <p>inserisci i mezzi che possiedi </p>
+                            <input id="Check1" type="checkbox" name="macchina" value="macchina" onclick="CheckFunction(document.getElementById('Check1').value)">
+                            <label for="Check1"> ho una macchina</label>
+
+                            <input id="Check2" type="checkbox" name="moto" value="moto" onclick="CheckFunction(document.getElementById('Check2').value)">
+                            <label for="Check2"> ho una moto</label>
+
+                            <input id="Check3" type="checkbox" name="bici" value="bici" onclick="CheckFunction(document.getElementById('Check3').value)">
+                            <label for="Check3"> ho una bici </label>
+                        </div>
 
                         <p >inserisci l'anno di nascita </p>
                         <input type="number" id="comple">
 
-                        <input type="button" value="Cliccami" onclick="anagrafe()">
+                        <input type="button" value="Cliccami" onclick="anagrafe(mezzo)">
                         
                     </div>
                 </td>  
@@ -100,6 +133,7 @@
                         <p id="OutCittà"> </p>
                         <p id="OutIndirizzo"> </p>
                         <p id="OutCAP"> </p>
+                        <p id="OutMezzo"> </p>
                         <p id="OutComple"> </p>
                         <p id="OutGenerazione"> </p>
                         <p id="OutGenere"></p>
