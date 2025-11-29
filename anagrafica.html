@@ -72,14 +72,33 @@
                         document.getElementById("OutGenerazione").innerHTML = "generazione silenizosa";  
                     break                   
                 }
+
                 for(let i = 0; i< document.getElementsByName("genere").length; i++){
                     if(document.getElementsByName("genere")[i].checked){
                         document.getElementById("OutGenere").innerHTML = document.getElementsByName("genere")[i].value;
                     }
                 }
+
+                let opzioni = document.forms.FormMaterie.SelectMaterie.options;
+
+                let selezionata;
+
+                let risultati = [];
+
+                for(let q = 0; q < opzioni.length; q++){
+                    if(opzioni[q].selected) {
+                        selezionata = opzioni[q].value;
+                        risultati.push(selezionata);
+                    }
+                }
+
+                for(let i = 0; i < risultati.length; i++) {
+                    document.getElementById("OutMaterie").innerHTML += risultati[i] + ", ";
+                }
+                 
             }
 
-            
+                        
 
         </script>
         <table style="width: 100%;">  
@@ -127,6 +146,22 @@
                         <input type="number" id="comple">
 
                         <input type="button" value="Cliccami" onclick="anagrafe(CheckArray)">
+
+                        <form name="FormMaterie">
+                            <select name="SelectMaterie" multiple="multiple">
+                                <option value="Matematica"> Matematica </option>
+                                <option value="Inglese"> Inglese </option>
+                                <option value="Italiano"> Italiano </option>
+                                <option value="Storia"> Storia </option>
+                                <option value="Tlc"> Tlc </option>
+                                <option value="Tpsit"> Tpsit </option>
+                                <option value="Informatica"> Informatica </option>
+                                <option value="Sistemi e reti"> Sistemi e reti </option>
+                                <option value="Educazione fisica"> Educazione fisica </option>
+                                <option value="Educazione civica"> Educazione civica </option>
+                                <option value="Religione"> Religione </option>
+                            </select>
+                        </form>
                         
                     </div>
                 </td>  
@@ -134,14 +169,15 @@
                     <div>
                         <p id="OutNome"> </p>
                         <p id="OutCognome"> </p>
-                        <p id="OutProvincia"></p>
+                        <p id="OutProvincia"> </p>
                         <p id="OutCittà"> </p>
                         <p id="OutIndirizzo"> </p>
                         <p id="OutCAP"> </p>
                         <p id="OutMezzo"> </p>
                         <p id="OutComple"> </p>
                         <p id="OutGenerazione"> </p>
-                        <p id="OutGenere"></p>
+                        <p id="OutGenere"> </p>
+                        <p id="OutMaterie"> </p>
                     </div>
                 </td>
             </tr>      
