@@ -4,6 +4,12 @@
     </head>
     <body>
         <script>
+
+            let object = {nome: "", cognome: "", nascita: "", genere: "", provincia: "", citta: "", indirizzo: "", cap: "", mezzo: "", materie: ""}
+
+
+
+
             let CheckArray = new Array();
             function CheckFunction(risposta){
                 let trovato = false;
@@ -89,27 +95,27 @@
             }
 
             function anagrafe(trasporto, provinciascelta){
-                let GetNome = document.getElementById("nome").value;
-                document.getElementById("OutNome").innerHTML = GetNome;
+                object.nome = document.getElementById("nome").value;
+                document.getElementById("OutNome").innerHTML = object.nome;
                 
-                let GetCognome = document.getElementById("cognome").value;
-                document.getElementById("OutCognome").innerHTML = GetCognome;
+                object.cognome = document.getElementById("cognome").value;
+                document.getElementById("OutCognome").innerHTML = object.cognome;
                 
-                let GetIndirizzo = document.getElementById("indirizzo").value;
-                document.getElementById("OutIndirizzo").innerHTML = GetIndirizzo;
+                object.indirizzo = document.getElementById("indirizzo").value;
+                document.getElementById("OutIndirizzo").innerHTML = object.indirizzo;
                 
-                let GetCittà = document.getElementById("città").value;
-                document.getElementById("OutCittà").innerHTML = GetCittà;
+                object.citta = document.getElementById("città").value;
+                document.getElementById("OutCittà").innerHTML = object.citta;
                 
-                let GetCAP = document.getElementById("CAP").value;
-                document.getElementById("OutCAP").innerHTML = GetCAP;
+                object.cap = document.getElementById("CAP").value;
+                document.getElementById("OutCAP").innerHTML = object.cap;
                 
-                let GetComple = document.getElementById("comple").value;
-                document.getElementById("OutComple").innerHTML = GetComple;
+                object.nascita = document.getElementById("comple").value;
+                document.getElementById("OutComple").innerHTML = object.nascita;
                 
                 document.getElementById("OutProvincia").innerHTML=provinciascelta;
 
-                let GetMezzo = trasporto;
+                object.mezzo = trasporto;
                 document.getElementById("OutMezzo").innerHTML = "";
                 for(let k = 0; k<trasporto.length; k++){
                     document.getElementById("OutMezzo").innerHTML += trasporto[k] + ", ";
