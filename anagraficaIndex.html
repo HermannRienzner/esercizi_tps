@@ -87,6 +87,8 @@
                 }
             }
             function anagrafe(trasporto, provinciascelta){
+                localStorage.getItem("elenco");
+              
                 object.nome = document.getElementById("nome").value;                
                 object.cognome = document.getElementById("cognome").value;                
                 object.indirizzo = document.getElementById("indirizzo").value;                
@@ -142,7 +144,8 @@
                 for(let i = 0; i < risultati.length; i++) {
                     object.materie += risultati[i] + ", ";
                 }
-                 
+
+              localStorage.setItem("elenco", JSON.stringify(object));
             }
 
                         
@@ -235,6 +238,8 @@
                         </form>
 
                         <input type="button" value="Cliccami" onclick="anagrafe(CheckArray, ProvinciaScelta)">
+
+                        <a href="anagraficaStampa.html">Stampa</a>
                         
                     </div>
                 </td>  
