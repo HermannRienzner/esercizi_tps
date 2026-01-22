@@ -1,3 +1,65 @@
 <html>
-  
+    <head>
+        <title>
+            local storage
+        </title>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <p>nome</p>
+                    </td>
+                    <td>
+                        <p>cognome</p>
+                    </td>
+                    <td>
+                        <p>indirizzo</p>
+                    </td>
+                    <td>
+                        <p>città</p>
+                    </td>
+                    <td>
+                        <p>CAP</p>
+                    </td>
+                    <td>
+                        <p>anno di nascita</p>
+                    </td>
+                    <td>
+                        <p>provincia</p>
+                    </td>
+                    <td>
+                        <p>mezzi di trasporto</p>
+                    </td>
+                    <td>
+                        <p>generazione</p>
+                    </td>
+                    <td>
+                        <p>genere</p>
+                    </td>
+                    <td>
+                        <p>materie</p>
+                    </td>
+                </tr>
+                <tr id="rigaElementi">
+
+                </tr>
+            </table>
+
+            <script>
+                let riga = document.getElementById("rigaElementi").innerHTML
+                let oggetto = JSON.parse(localStorage.getItem("elenco"));
+                let td
+                let p
+                for(let i = 0; i < oggetto.length; i++) {
+                    td = document.createElement("td")
+                    p = document.createElement("p")
+                    p.textContent = oggetto[i].valore
+                    td.appendChild(p)
+                    riga.appendChild(td)
+                }
+            </script>
+        </div>
+    </body>
 </html>
