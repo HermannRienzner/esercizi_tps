@@ -1,8 +1,252 @@
 <html>
   <head>
-      
-  </head>
-  <body>
-    
-  </body>
+        <title>anagrafica</title>
+    </head>
+    <body>
+        <script>
+
+            let object = {nome: "", cognome: "", nascita: "", genere: "", provincia: "", citta: "", indirizzo: "", cap: "", mezzo: "", materie: "", generazione:""}
+
+
+
+
+            let CheckArray = new Array();
+            function CheckFunction(risposta){
+                let trovato = false;
+                for (let j = 0; j < CheckArray.length; j++){
+                    if(CheckArray[j] == risposta){
+                        trovato = true;
+                        if(j == CheckArray.length -1) {
+                            CheckArray.pop();
+                        }
+                        else{
+                            CheckArray[j] = CheckArray[CheckArray.length -1];
+                            CheckArray.pop()
+                        }
+                    }
+                }
+                if(trovato == false){
+                    CheckArray.push(risposta);
+                }
+                return(CheckArray);
+            }
+
+            let ProvinciaScelta = "";
+
+            function ProvinciaFunction (numero){
+
+                if(numero == 1){
+                    let e = document.getElementById("SelectIniziale")
+                    let s = e.options[e.selectedIndex].value;
+
+                    if(s == 1){
+                        document.getElementById("SelectMilano").style.visibility = "hidden";
+                        document.getElementById("SelectPavia").style.visibility = "hidden";
+                    }
+                    else if(s == 2){
+                        document.getElementById("SelectMilano").style.visibility = "visible";
+                        document.getElementById("SelectPavia").style.visibility = "hidden";
+                    }
+                    else if(s == 3){
+                        document.getElementById("SelectMilano").style.visibility = "hidden";
+                        document.getElementById("SelectPavia").style.visibility = "visible";
+                    }
+                }
+                else if(numero == 2){
+                    e = document.getElementById("SelectMilano")
+                    s = e.options[e.selectedIndex].value;
+                    if(s == 1) {
+                        document.getElementById("SelectMilano").style.visibility = "visible";
+                        document.getElementById("SelectPavia").style.visibility = "hidden";
+                    }
+                    else if(s == 2){
+                        ProvinciaScelta = "Rho";
+                        return ProvinciaScelta;
+                    }
+                    else if(s == 3){
+                        ProvinciaScelta = "Lainate";
+                        return ProvinciaScelta;
+                    }
+                    else if(s == 4){
+                        ProvinciaScelta = "Parabiago";
+                        return ProvinciaScelta;
+                    }
+                }
+                else if(numero == 3){
+                    e = document.getElementById("SelectPavia")
+                    s = e.options[e.selectedIndex].value;
+                    if(s == 1) {
+                        document.getElementById("SelectMilano").style.visibility = "hidden";
+                        document.getElementById("SelectPavia").style.visibility = "visible";
+                    }
+                    else if(s == 2){
+                        ProvinciaScelta = "Vigevano";
+                        return ProvinciaScelta;
+                    }
+                    else if(s == 3){
+                        ProvinciaScelta = "Zavattarello";
+                        return ProvinciaScelta;
+                    }
+                    else if(s == 4){
+                        ProvinciaScelta = "Godiasco";
+                        return ProvinciaScelta;
+                    }
+                }
+            }
+
+            function anagrafe(trasporto, provinciascelta){
+                object.nome = document.getElementById("nome").value;                
+                object.cognome = document.getElementById("cognome").value;                
+                object.indirizzo = document.getElementById("indirizzo").value;                
+                object.citta = document.getElementById("città").value;                
+                object.cap = document.getElementById("CAP").value;                
+                object.nascita = document.getElementById("comple").value;                
+                object.provincia=provinciascelta;
+
+                for(let k = 0; k<trasporto.length; k++){
+                    object.mezzo += trasporto[k] + ", ";
+                }
+                
+                switch(true){
+                    case document.getElementById("comple").value > 2013:
+                        object.generazione = "generazione alpha";
+                    break 
+                    case document.getElementById("comple").value > 1997:
+                        object.generazione = "generazione z";
+                    break
+                    case document.getElementById("comple").value > 1981:
+                        object.generazione = "generazione millenials";
+                    break
+                    case document.getElementById("comple").value > 1965:
+                        object.generazione = "generazione x";
+                    break
+                    case document.getElementById("comple").value > 1946:
+                        object.generazione = "generazione baby boomers";
+                    break
+                    case document.getElementById("comple").value > 1928:
+                        object.generazione = "generazione silenizosa";  
+                    break                   
+                }
+
+                for(let i = 0; i< document.getElementsByName("genere").length; i++){
+                    if(document.getElementsByName("genere")[i].checked){
+                        object.genere = document.getElementsByName("genere")[i].value;
+                    }
+                }
+
+                let opzioni = document.forms.FormMaterie.SelectMaterie.options;
+
+                let selezionata;
+
+                let risultati = [];
+
+                for(let q = 0; q < opzioni.length; q++){
+                    if(opzioni[q].selected) {
+                        selezionata = opzioni[q].value;
+                        risultati.push(selezionata);
+                    }
+                }
+
+                for(let i = 0; i < risultati.length; i++) {
+                    object.materie += risultati[i] + ", ";
+                }
+                 
+            }
+
+                        
+
+        </script>
+        <table style="width: 100%;">  
+            <tr>
+                <td style="text-align: left;">
+                    <div>
+                        <p >inserisci il nome</p>
+                        <input type="text" id="nome">
+
+                        <p >inserisci il cognome</p>
+                        <input type="text" id="cognome">
+
+                        <div>
+                            <p>inserisci il genere</p> 
+                            <input type="radio" name= "genere" value="uomo"> "uomo" <br>
+                            <input type="radio" name= "genere" value="donna"> "donna" <br>
+                            <input type="radio" name= "genere" value="preferisco non specificarlo"> "preferisco non specificarlo" <br>
+                        </div>
+                        
+                        <p>inserisci la provincia</p>
+                        <div>
+                            <div id="DivIniziale">
+                                <select id="SelectIniziale" onchange="ProvinciaFunction(1)" style="visibility: visible;">
+                                    <option value="1"> Seleziona: </option>
+                                    <option value="2"> Milano </option>
+                                    <option value="3"> Pavia </option>
+                                </select>
+                            </div>
+                            <div id="DivMilano">
+                                <select id="SelectMilano" onchange="ProvinciaFunction(2)" style="visibility: hidden;">
+                                    <option value="1"> Seleziona: </option>
+                                    <option value="2"> Rho </option>
+                                    <option value="3"> Lainate </option>
+                                    <option value="4"> Parabiago </option>
+                                </select>
+                            </div>
+                            <div id="DivPavia">
+                                <select id="SelectPavia" onchange="ProvinciaFunction(3)" style="visibility: hidden;">
+                                    <option value="1"> Seleziona: </option>
+                                    <option value="2"> Vigevano </option>
+                                    <option value="3"> Zavattarello </option>
+                                    <option value="4"> Godiasco </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p >inserisci la città</p>
+                        <input type="text" id="città">
+
+                        <p >inserisci l'indirizzo</p>
+                        <input type="text" id="indirizzo">
+
+                        <p >inserisci il CAP </p>
+                        <input type="number" id="CAP">
+
+                        <div>
+                            <p>inserisci i mezzi che possiedi </p>
+                            <input id="Check1" type="checkbox" name="macchina" value="macchina" onclick="CheckFunction(document.getElementById('Check1').value)">
+                            <label for="Check1"> ho una macchina</label>
+
+                            <input id="Check2" type="checkbox" name="moto" value="moto" onclick="CheckFunction(document.getElementById('Check2').value)">
+                            <label for="Check2"> ho una moto</label>
+
+                            <input id="Check3" type="checkbox" name="bici" value="bici" onclick="CheckFunction(document.getElementById('Check3').value)">
+                            <label for="Check3"> ho una bici </label>
+                        </div>
+
+                        <p >inserisci l'anno di nascita </p>
+                        <input type="number" id="comple">
+                        
+                        <p> inserisci le tue materie preferite</p>
+
+                        <form name="FormMaterie">
+                            <select name="SelectMaterie" multiple="multiple">
+                                <option value="Matematica"> Matematica </option>
+                                <option value="Inglese"> Inglese </option>
+                                <option value="Italiano"> Italiano </option>
+                                <option value="Storia"> Storia </option>
+                                <option value="Tlc"> Tlc </option>
+                                <option value="Tpsit"> Tpsit </option>
+                                <option value="Informatica"> Informatica </option>
+                                <option value="Sistemi e reti"> Sistemi e reti </option>
+                                <option value="Educazione fisica"> Educazione fisica </option>
+                                <option value="Educazione civica"> Educazione civica </option>
+                                <option value="Religione"> Religione </option>
+                            </select>
+                        </form>
+
+                        <input type="button" value="Cliccami" onclick="anagrafe(CheckArray, ProvinciaScelta)">
+                        
+                    </div>
+                </td>  
+            </tr>      
+        </table>
+    </body>
 </html>
