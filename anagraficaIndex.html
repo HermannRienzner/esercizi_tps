@@ -4,7 +4,7 @@
     </head>
     <body>
         <script>
-            let object = {nome: "", cognome: "", nascita: "", genere: "", provincia: "", citta: "", indirizzo: "", cap: "", mezzo: "", materie: "", generazione:""}
+            let object = [{}, {}, {}, {}, {}, {}, {}, {}, }, {}, {}]
             let CheckArray = new Array();
             let ProvinciaScelta = "";
           
@@ -89,42 +89,42 @@
             function anagrafe(trasporto, provinciascelta){
                 localStorage.getItem("elenco");
               
-                object.nome = document.getElementById("nome").value;                
-                object.cognome = document.getElementById("cognome").value;                
-                object.indirizzo = document.getElementById("indirizzo").value;                
-                object.citta = document.getElementById("città").value;                
-                object.cap = document.getElementById("CAP").value;                
-                object.nascita = document.getElementById("comple").value;                
-                object.provincia=provinciascelta;
+                object[1].valore = document.getElementById("nome").value;                
+                object[2].valore = document.getElementById("cognome").value;                
+                object[3].valore = document.getElementById("indirizzo").value;                
+                object[4].valore = document.getElementById("città").value;                
+                object[5].valore = document.getElementById("CAP").value;                
+                object[6].valore = document.getElementById("comple").value;                
+                object[7].valore=provinciascelta;
 
                 for(let k = 0; k<trasporto.length; k++){
-                    object.mezzo += trasporto[k] + ", ";
+                    object[8].valore += trasporto[k] + ", ";
                 }
                 
                 switch(true){
                     case document.getElementById("comple").value > 2013:
-                        object.generazione = "generazione alpha";
+                        object[9].valore = "generazione alpha";
                     break 
                     case document.getElementById("comple").value > 1997:
-                        object.generazione = "generazione z";
+                        object[9].valore = "generazione z";
                     break
                     case document.getElementById("comple").value > 1981:
-                        object.generazione = "generazione millenials";
+                        object[9].valore = "generazione millenials";
                     break
                     case document.getElementById("comple").value > 1965:
-                        object.generazione = "generazione x";
+                        object[9].valore = "generazione x";
                     break
                     case document.getElementById("comple").value > 1946:
-                        object.generazione = "generazione baby boomers";
+                        object[9].valore = "generazione baby boomers";
                     break
                     case document.getElementById("comple").value > 1928:
-                        object.generazione = "generazione silenizosa";  
+                        object[9].valore = "generazione silenizosa";  
                     break                   
                 }
 
                 for(let i = 0; i< document.getElementsByName("genere").length; i++){
                     if(document.getElementsByName("genere")[i].checked){
-                        object.genere = document.getElementsByName("genere")[i].value;
+                        object[10].valore = document.getElementsByName("genere")[i].value;
                     }
                 }
 
@@ -142,7 +142,7 @@
                 }
 
                 for(let i = 0; i < risultati.length; i++) {
-                    object.materie += risultati[i] + ", ";
+                    object[11].valore += risultati[i] + ", ";
                 }
 
               localStorage.setItem("elenco", JSON.stringify(object));
