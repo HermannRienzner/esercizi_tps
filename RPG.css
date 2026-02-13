@@ -1,0 +1,7 @@
+.dialogo{
+    display: flex;
+    justify-content: center;
+}
+.centro{
+    text-align: center;
+}
