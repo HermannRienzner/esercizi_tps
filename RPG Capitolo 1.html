@@ -1,0 +1,120 @@
+<html style="background-color: bisque;">
+    <head>
+        <title>
+            Capitolo1
+        </title>
+    </head>
+    <link rel="stylesheet" href="RPG.css">
+    <body>
+    
+        <script>
+// script del primo dialogo
+            function risposta1(parola){
+                if (parola == 'si'){
+                    document.getElementById("rispostaInterlocutore1").innerHTML = "'Bene, siano ringraziati gli dei. Credo tu siappia perché sei qui, no? Beh, te lo dirò io allora. " + 
+                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
+                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
+                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
+                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; "+
+                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
+                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";                                                   
+                }
+                else if (parola == 'no') {
+                    document.getElementById("rispostaInterlocutore1").innerHTML = "'beh, questo è un peccato; due mesi fa avevamo chiesto aiuto al re per una questione preoccupante: " + 
+                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
+                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
+                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
+                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; " +
+                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
+                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";
+                }
+                else {
+                    document.getElementById("rispostaInterlocutore1").innerHTML = "'oh, non sai di che si tratta quindi; beh, te lo dirò io allora. " +
+                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
+                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
+                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
+                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; " +
+                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
+                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";
+                }
+                document.getElementById("dialogo1").style.visibility = "hidden";
+            }
+// fine script             
+        </script>
+
+        <div class="centro">      
+            <h1>Capitolo 1</h1> <br>  
+
+            <div class="dialogo">
+                <p id="prologo" style="text-align: center; width: 40%;"></p>
+            </div>
+
+            <p id="benvenutoAvventurriero" style="margin-top: 5%;"> 
+                'Saluti avventurriero, il mio nome è Anoc e sono il saggio si questo villaggio: Miskos <br>
+                per caso sei qui per conto del re?'
+            </p> <br> <br>  
+            
+            <div id="dialogo1" class="centro">
+                <input type="radio" onclick="risposta1('si')">
+                "hai indovinato, vecchio"
+                <input type="radio" onclick="risposta1('no')">
+                "no, ho altri motivi"
+                <input type="radio" onclick="risposta1('domanda')">
+                "perché dovrebbe avermi mandato il re?" <br> <br>
+            </div>
+            
+            <div style="width: 100%;" class="dialogo">
+                <p style="text-align: center; width: 40%;" id="rispostaInterlocutore1"></p>
+            </div>     
+            
+            <div id="menu1">
+                <select name="selezione" id="selezione1">
+                    <option value="viaggia"> Viaggia </option>
+                    <option value="parla"> Parla </option>
+                    <option value="inventario"> Inventario </option>
+                    <option value="combatti"> Combatti </option>
+                    <option value="riposa"> Riposa </option>
+                </select>
+            </div>
+        </div>
+
+        <script>
+            let avventurriero = JSON.parse(localStorage.getItem("eroe"));
+            if(avventurriero.caratteristiche.classe == "Arciere"){
+                document.getElementById("prologo").innerHTML = "Fin dalla giovane età, tuo padre ti aveva istruito nella disciplina dell'arcieria."+ "\n" +
+                                                               "egli era un rinomato cacciatore e non vi era bestia nella regione che non fosse divenuta sua preda." + "\n" +
+                                                               "come la tua conoscenza dell'arco cresceva, così facevano la tua ambizione ed il tuo desiderio di scoperta, e quando compisti " + avventurriero.caratteristiche.eta + "\n" +
+                                                               "anni, decidesti di lasciare il tuo villaggio per viaggiare alla ricerca di nuove terre e di nuove prede. così comincia il tuo viaggio." + "\n" +
+                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." + "\n" +
+                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
+            }
+            else if (avventurriero.caratteristiche.classe == "Guerriero"){
+                document.getElementById("prologo").innerHTML = "Diventare un soldato dell'armata di re Yohr era sempre stato il tuo più grande desiderio" + "\n" +
+                                                               "e non appena raggiungesti la maggiore età, ti arruolasti nell'accademia militare della capitale del regno;" + "\n" +
+                                                               "grazie a una volontà incrollabile e a un addestramento ferreo vincesti presto la tua debole costituzione, diventando un eccellente guerriero." + "\n" +
+                                                               "le tue abilità sorpresero piacevolmente il capitano a comando dell'accademia e, ti propose come candidato per il ruolo di guardia personale del re." + "\n" +
+                                                               "la selezione della nuova guardia reale consisteva in una serie di duelli individuali, e chi ne sarebbe uscito vincitore sarebbe stato ivestito di quel titolo." + "\n" +
+                                                               "con supremo orgoglio da parte del tuo capitano, fosti proprio tu a uscire vincitore da quella prova, ma sebbene onorato dall'incarico che ti sarebbe stato affidato; tuttavia," + "\n" +
+                                                               "quando realizzasti che il tuo destino sarebbe stato quello di rimanere confinato nel castello, anziché difendere il nome del re sul campo di battaglia, il mondo ti crollò sotto i piedi" + "\n" +
+                                                               "proprio per questo motivo, quando dopo un mese al servizio del re egli ti propose di lasciare il regno per intraprendere una missione di importanza vitale, accettasti senza esitare" + "\n" +
+                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." + "\n" +
+                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
+            }
+            else {
+                document.getElementById("prologo").innerHTML = "Fin da quando nascesti, in te si videro segni della stregoneria e si mostrarono con la forma di una runa nera tatuatati in fronte." +
+                                                               "per la umile famiglia dalla quale provenivi, avere un figlio provvisto del dono della magia era un evento unico" +
+                                                               "difatti, da che sia aveva memoria, l'abilità di piegare la realtà al proprio volere era stata detenta da solo dalle più nobili stirpi." +
+                                                               "le tue innate abilità non tardarono a mostrarsi e fu presto chiaro che il tuo potenziale fosse immenso." +
+                                                               "come d'usanza nella tua terra; quando compisti dodici anni venisti portato tra le montagne, "+
+                                                               "dove era eretta la torre dell'arcimago Ivres, per intraprendere i tuoi studi nelle arti magiche. insieme a te, altri nove raggiunsero la torre; ognuno di una diversa famiglia nobiliare" +
+                                                               "la tua presenza lì causò scalpore, e furono in molti quelli che date le tue origini sostennero che avessi mentito sulle tue doti;" +
+                                                               "tuttavia, quando nella prova di iniziazione dimostrarsi di possedere un potere pari al loro, se non perfino superiore, quelle voci cessarono senza lasciare traccia" +
+                                                               "i tuoi nuovi compagni iniziarono presto a rispettarti come loro pari e mentre i vostri studi proseguivano, tra voi dieci apprendisti nacque una solida fratellanza." +
+                                                               "quando vi diplomaste, il vostro prossimo passo per diventare stregoni era compiere un viaggio per le terre del continente in modo tale da affinare le vostre menti, e le vostre abilità" +
+                                                               "vi lasciaste con la promessa di riincontrarci una volta diventati degli stregoni a tutti gli effetti e partiste ognuno in una diversa direzione." +
+                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." +
+                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
+            }
+        </script>
+    </body>
+</html>
