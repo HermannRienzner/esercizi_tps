@@ -8,77 +8,7 @@
     <body>
     
         <script>
-// script del primo dialogo
-            function risposta1(parola){
-                if (parola == 'si'){
-                    document.getElementById("rispostaInterlocutore1").innerHTML = "'Bene, siano ringraziati gli dei. Credo tu siappia perché sei qui, no? Beh, te lo dirò io allora. " + 
-                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
-                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
-                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
-                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; "+
-                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
-                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";                                                   
-                }
-                else if (parola == 'no') {
-                    document.getElementById("rispostaInterlocutore1").innerHTML = "'beh, questo è un peccato; due mesi fa avevamo chiesto aiuto al re per una questione preoccupante: " + 
-                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
-                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
-                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
-                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; " +
-                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
-                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";
-                }
-                else {
-                    document.getElementById("rispostaInterlocutore1").innerHTML = "'oh, non sai di che si tratta quindi; beh, te lo dirò io allora. " +
-                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
-                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
-                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
-                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; " +
-                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
-                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";
-                }
-                document.getElementById("dialogo1").style.visibility = "hidden";
-            }
-// fine script             
-        </script>
-
-        <div class="centro">      
-            <h1>Capitolo 1</h1> <br>  
-
-            <div class="dialogo">
-                <p id="prologo" style="text-align: center; width: 40%;"></p>
-            </div>
-
-            <p id="benvenutoAvventurriero" style="margin-top: 5%;"> 
-                'Saluti avventurriero, il mio nome è Anoc e sono il saggio si questo villaggio: Miskos <br>
-                per caso sei qui per conto del re?'
-            </p> <br> <br>  
-            
-            <div id="dialogo1" class="centro">
-                <input type="radio" onclick="risposta1('si')">
-                "hai indovinato, vecchio"
-                <input type="radio" onclick="risposta1('no')">
-                "no, ho altri motivi"
-                <input type="radio" onclick="risposta1('domanda')">
-                "perché dovrebbe avermi mandato il re?" <br> <br>
-            </div>
-            
-            <div style="width: 100%;" class="dialogo">
-                <p style="text-align: center; width: 40%;" id="rispostaInterlocutore1"></p>
-            </div>     
-            
-            <div id="menu1" style="visibility: hidden;">
-                <select name="selezione" id="selezione1">
-                    <option value="viaggia"> Viaggia </option>
-                    <option value="parla"> Parla </option>
-                    <option value="inventario"> Inventario </option>
-                    <option value="combatti"> Combatti </option>
-                    <option value="riposa"> Riposa </option>
-                </select>
-            </div>
-        </div>
-
-        <script>
+// script del prologo            
             let avventurriero = JSON.parse(localStorage.getItem("eroe"));
             if(avventurriero.caratteristiche.classe == "Arciere"){
                 document.getElementById("prologo").innerHTML = "Fin dalla giovane età, tuo padre ti aveva istruito nella disciplina dell'arcieria."+ "\n" +
@@ -115,6 +45,74 @@
                                                                "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." +
                                                                "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
             }
-        </script>
+// fine script del prologo            
+// script del primo dialogo
+            function risposta1(parola){
+                if (parola == 'si'){
+                    document.getElementById("rispostaInterlocutore1").innerHTML = "'Bene, siano ringraziati gli dei. Credo tu siappia perché sei qui, no? Beh, te lo dirò io allora. " + 
+                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
+                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
+                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
+                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; "+
+                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
+                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";                                                   
+                }
+                else if (parola == 'no') {
+                    document.getElementById("rispostaInterlocutore1").innerHTML = "'beh, questo è un peccato; due mesi fa avevamo chiesto aiuto al re per una questione preoccupante: " + 
+                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
+                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
+                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
+                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; " +
+                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
+                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";
+                }
+                else {
+                    document.getElementById("rispostaInterlocutore1").innerHTML = "'oh, non sai di che si tratta quindi; beh, te lo dirò io allora. " +
+                                                                                  "come saprai gli stregoni lanciano i loro incantesimi traendo l'energia necessaria a farlo dal potere di cui è infuso il creato: il mana" + 
+                                                                                  "però da due mesi fa ormai si è verificato uno strano fenomeno: sembra che il mana stia svanendo dal continente, come se qualcosa lo risucchiasse;" + 
+                                                                                  "oh; se sei uno stregone non preoccuparti, almeno per il momento il mana è ancora abbondante, non dovresti avere problemi a lanciare i tuoi incantesimi." + 
+                                                                                  "però, se hai intenzione di aiutarci dovresti cercare la causa di questi fenomeni; " +
+                                                                                  "in quanto saggio tendo a vedere più di molti altri e posso dirti che il mana si muove verso nord" + 
+                                                                                  "visto che ci vuoi aiutare, sentiti libero di esplorare la città; le botteghe di Miskos potrebbero venderti qualcosa di utile'";
+                }
+                document.getElementById("dialogo1").style.visibility = "hidden";
+                document.getElementById("menu1").style.visibility = "visible";
+            }
+
+        <div class="centro">      
+            <h1>Capitolo 1</h1> <br>  
+
+            <div class="dialogo">
+                <p id="prologo" style="text-align: center; width: 40%;"></p>
+            </div>
+
+            <p id="benvenutoAvventurriero" style="margin-top: 5%;"> 
+                'Saluti avventurriero, il mio nome è Anoc e sono il saggio si questo villaggio: Miskos <br>
+                per caso sei qui per conto del re?'
+            </p> <br> <br>  
+            
+            <div id="dialogo1" class="centro">
+                <input type="radio" onclick="risposta1('si')">
+                "hai indovinato, vecchio"
+                <input type="radio" onclick="risposta1('no')">
+                "no, ho altri motivi"
+                <input type="radio" onclick="risposta1('domanda')">
+                "perché dovrebbe avermi mandato il re?" <br> <br>
+            </div>
+            
+            <div style="width: 100%;" class="dialogo">
+                <p style="text-align: center; width: 40%;" id="rispostaInterlocutore1"></p>
+            </div>     
+            
+            <div id="menu1" style="visibility: hidden;">
+                <select name="selezione" id="selezione1">
+                    <option value="viaggia"> Viaggia </option>
+                    <option value="parla"> Parla </option>
+                    <option value="inventario"> Inventario </option>
+                    <option value="combatti"> Combatti </option>
+                    <option value="riposa"> Riposa </option>
+                </select>
+            </div>
+        </div>
     </body>
 </html>
