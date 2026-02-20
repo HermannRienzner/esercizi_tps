@@ -5,6 +5,11 @@
 .centro{
     text-align: center;
 }
+
 body{
     background-color: bisque;
+}
+.menu{
+    display: flex;
+    justify-content: center;
 }
