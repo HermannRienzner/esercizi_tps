@@ -27,42 +27,38 @@
                 }
                 if(caratteristiche.classe == "Guerriero"){
                     caratteristiche.healthPoints = 20;
-                    caratteristiche.armorClass = 14;
                 }
                 else if (caratteristiche.classe == "Arciere"){
                     caratteristiche.healthPoints = 15;
-                    caratteristiche.armorClass = 12;
                 }
                 else{ // classe Stregone
                     caratteristiche.healthPoints = 10;
-                    caratteristiche.armorClass = 10;
-                }
-                
+                }                
 //fine assegnazione caratteristiche
 
 
 // inizio assegnazione equipaggiamento                
                 let equipaggiamento = [{
-                    nome: "scudoCuoio", 
+                    nome: "Scudo di cuoio", 
                     armorClass: 1, 
                     ingombro: false, 
                     equip: true
                 },
                 {
-                    nome: "cinturaPozioni", 
+                    nome: "Cintura per pozioni", 
                     numeroPozioni: 3, 
                     maxPozioni: 5
                 }, 
                 {
-                    nome: "borsaMonete", 
+                    nome: "Borsa di monete", 
                     valore: 50
-                }, 
+                },
                 {
-                    nome: "", 
-                    armorClass: 0
-                }];
-
-                
+                    nome: "",
+                    armorClass: 0,
+                    equip: true
+                }
+                ];            
 // fine assegnazione equipaggiamento    
 
 
@@ -85,22 +81,22 @@
                 }];
 
                 if(caratteristiche.classe == "Arciere"){
-                    armi[0].nome = "arcoLungo";
+                    armi[0].nome = "Arco lungo";
                     armi[0].dannoMax = 8;
                     armi[0].attacchi = 2;
                     armi[0].portata = 70;
                     armi[0].ingombro = false;
                     armi[0].equip = true;
-                    armi[1].nome = "attaccoFreccia";
+                    armi[1].nome = "Colpo di freccia";
                     armi[1].dannoMax = 2;
                     armi[1].attacchi = 3;
                     armi[1].portata = 1;
                     armi[1].ingombro = false;
                     armi[1].equip = true;
 
-                    equipaggiamento[2].nome = "corazzaCuoio"
-                    equipaggiamento[2].armorClass = 12;
-                    caratteristiche.armorClass = equipaggiamento[2].armorClass;
+                    equipaggiamento[3].nome = "Corazza di cuoio"
+                    equipaggiamento[3].armorClass = 12;
+                    caratteristiche.armorClass = equipaggiamento[2].armorClass + equipaggiamento[0].armorClass;
                 }
 
                 if(caratteristiche.classe == "Guerriero"){
@@ -110,38 +106,36 @@
                     armi[0].portata = 3;
                     armi[0].ingombro = true;
                     armi[0].equip = true;
-                    armi[1].nome = "spadaCorta";
+                    armi[1].nome = "spada corta";
                     armi[1].dannoMax = 6;
                     armi[1].attacchi = 2;
                     armi[1].portata = 1;
                     armi[1].ingombro = false;
                     armi[1].equip = false;
 
-                    equipaggiamento[2].nome = "corazzaScaglie"
-                    equipaggiamento[2].armorClass = 14;
-                    caratteristiche.armorClass = equipaggiamento[2].armorClass;
+                    equipaggiamento[3].nome = "Corazza a scaglie"
+                    equipaggiamento[3].armorClass = 14;
+                    caratteristiche.armorClass = equipaggiamento[2].armorClass + equipaggiamento[0].armorClass;
                 }
 
                 if(caratteristiche.classe == "Stregone"){
-                    armi[0].nome = "tomoProiettileMagico";
+                    armi[0].nome = "Proiettile magico";
                     armi[0].dannoMax = 5;
                     armi[0].attacchi = 4;
                     armi[0].portata = 20;
                     armi[0].ingombro = false;
                     armi[0].equip = true;
-                    armi[1].nome = "tomoTempesta";
+                    armi[1].nome = "Tempesta";
                     armi[1].dannoMax = 20;
-                    armi[1].portata = 30;
-                    armi[1].attacchi = "aura";
+                    armi[1].portata = "Aura";
+                    armi[1].attacchi = 1;
                     armi[1].ingombro = false;
                     armi[1].equip = true;
 
-                    equipaggiamento[2].nome = "vesti"
-                    equipaggiamento[2].armorClass = 10;
-                    caratteristiche.armorClass = equipaggiamento[2].armorClass;
-                }     
-
-                
+                    equipaggiamento[3].nome = "Vesti"
+                    equipaggiamento[3].armorClass = 10;
+                    caratteristiche.armorClass = equipaggiamento[2].armorClass + equipaggiamento[0].armorClass;
+                }                   
 // fine assegnazione armi  
 
 
@@ -221,5 +215,7 @@
         
         <a href="RPG Capitolo 1.html" id="clicAvventura" onclick="stampaPagina()" style="text-align: center;"> <p id="parti"></p> </a>
     </body>
+
+</html>
 
 </html>
