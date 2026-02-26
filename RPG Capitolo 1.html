@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="RPG.css">
     <body>
         <script>
-// script del primo dialogo
+            let avventurriero = JSON.parse(localStorage.getItem("eroe"));
+// inizio script del primo dialogo
             function risposta1(parola){
                 if (parola == 'si'){
                     document.getElementById("rispostaInterlocutore1").innerHTML = "'Bene, siano ringraziati gli dei. Credo tu siappia perché sei qui, no? Beh, te lo dirò io allora. " + 
@@ -39,17 +40,86 @@
                 document.getElementById("dialogo1").style.visibility = "hidden";
                 document.getElementById("menu1").style.visibility = "visible";
             }
-// fine script    
+// fine script del primo dialogo  
+
+// inizio script dell'inventario         
+            function creazioneInventario(indirizzo){
+                document.getElementById(indirizzo).innerHTML = ""; 
+                let p;
+
+                for(let i = 0; i < 2; i ++){
+                    p = document.createElement("p");
+                    p.textContent = avventurriero.armi[i].nome + 
+                    ", Danno massimo: " + avventurriero.armi[i].dannoMax + 
+                    ", Attacchi per turno: " + avventurriero.armi[i].attacchi + 
+                    ", Portata: " + avventurriero.armi[i].portata + 
+                    ", Ingombrante: " + avventurriero.armi[i].ingombro +
+                    ", equipaggiato: " + avventurriero.armi[i].equip;
+                    
+                    document.getElementById(indirizzo).appendChild(p);
+                }
+
+                p = document.createElement("p");
+                p.textContent = avventurriero.equipaggiamento[0].nome + 
+                ", difesa: " + avventurriero.equipaggiamento[0].armorClass + 
+                ", ingombro: " + avventurriero.equipaggiamento[0].ingombro + 
+                ", equipaggiato: " + avventurriero.equipaggiamento[0].equip;
+                
+                document.getElementById(indirizzo).appendChild(p);
+
+                p = document.createElement("p");
+                p.textContent = avventurriero.equipaggiamento[1].nome + 
+                ", pozioni nella cintura: " + avventurriero.equipaggiamento[1].numeroPozioni + 
+                ", pozioni trasportabili: " + avventurriero.equipaggiamento[1].maxPozioni;
+                
+                document.getElementById(indirizzo).appendChild(p);
+
+                p = document.createElement("p");
+                p.textContent = avventurriero.equipaggiamento[2].nome + 
+                ", monete possedute: " + avventurriero.equipaggiamento[2].valore;
+
+                document.getElementById(indirizzo).appendChild(p);
+
+                p = document.createElement("p");
+                p.textContent = avventurriero.equipaggiamento[3].nome + 
+                ", difesa: " + avventurriero.equipaggiamento[3].armorClass + 
+                ", equipaggiato: " + avventurriero.equipaggiamento[3].equip;
+
+                document.getElementById(indirizzo).appendChild(p);
+                let br = document.createElement("br");
+
+                p = document.createElement("p");
+                p.textContent = "il tuo nome é " + avventurriero.caratteristiche.nome + 
+                ", hai " + avventurriero.caratteristiche.eta + " anni" + 
+                ", la tua classe é " + avventurriero.caratteristiche.classe + 
+                ", la tua salute é pari a " + avventurriero.caratteristiche.healthPoints + 
+                ", e la tua classe armatura é " + avventurriero.caratteristiche.armorClass; 
+
+                document.getElementById(indirizzo).appendChild(p);
+            }
+
+// fine script di creazione dell'inventario  
         </script>
+
         <div class="centro">      
-            <h1>Capitolo 1</h1> <br>  
+            <h1>Capitolo 1</h1> <br><br>
+
+            <h3>
+                Il tuo inventario, le tue caratteristiche e la tua storia:
+            </h3> <br>
+            <div class="centro" id="arrivoAvventurriero">
+            </div> <br>
+
+            <script>
+                creazioneInventario("arrivoAvventurriero");
+            </script>
 
             <div class="dialogo">
                 <p id="prologo" style="text-align: center; width: 40%;"></p>
             </div>
 
             <p id="benvenutoAvventurriero" style="margin-top: 5%;"> 
-                'Saluti avventurriero, il mio nome è Anoc e sono il saggio si questo villaggio: Miskos <br>
+                'Saluti avventurriero, il mio nome è Anoc e sono il saggio di questo villaggio: Miskos <br>
                 per caso sei qui per conto del re?'
             </p> <br> <br>  
             
@@ -69,29 +139,28 @@
 
         <script>
 //script del prologo            
-            let avventurriero = JSON.parse(localStorage.getItem("eroe"));
             if(avventurriero.caratteristiche.classe == "Arciere"){
-                document.getElementById("prologo").innerHTML = "Fin dalla giovane età, tuo padre ti aveva istruito nella disciplina dell'arcieria."+ "\n" +
-                                                               "egli era un rinomato cacciatore e non vi era bestia nella regione che non fosse divenuta sua preda." + "\n" +
-                                                               "come la tua conoscenza dell'arco cresceva, così facevano la tua ambizione ed il tuo desiderio di scoperta, e quando compisti " + avventurriero.caratteristiche.eta + "\n" +
-                                                               "anni, decidesti di lasciare il tuo villaggio per viaggiare alla ricerca di nuove terre e di nuove prede. così comincia il tuo viaggio." + "\n" +
-                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." + "\n" +
-                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
+                document.getElementById("prologo").innerHTML = "Fin dalla giovane età, tuo padre ti aveva istruito nella disciplina dell'arcieria."+
+                                                               "egli era un rinomato cacciatore e non vi era bestia nella regione che non fosse divenuta sua preda." +
+                                                               "come la tua conoscenza dell'arco cresceva, così facevano la tua ambizione ed il tuo desiderio di scoperta, e quando compisti " + avventurriero.caratteristiche.eta +
+                                                               "anni, decidesti di lasciare il tuo villaggio per viaggiare alla ricerca di nuove terre e di nuove prede. così comincia il tuo viaggio." +
+                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." +
+                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto";
             }
             else if (avventurriero.caratteristiche.classe == "Guerriero"){
-                document.getElementById("prologo").innerHTML = "Diventare un soldato dell'armata di re Yohr era sempre stato il tuo più grande desiderio" + "\n" +
-                                                               "e non appena raggiungesti la maggiore età, ti arruolasti nell'accademia militare della capitale del regno;" + "\n" +
-                                                               "grazie a una volontà incrollabile e a un addestramento ferreo vincesti presto la tua debole costituzione, diventando un eccellente guerriero." + "\n" +
-                                                               "le tue abilità sorpresero piacevolmente il capitano a comando dell'accademia e, ti propose come candidato per il ruolo di guardia personale del re." + "\n" +
-                                                               "la selezione della nuova guardia reale consisteva in una serie di duelli individuali, e chi ne sarebbe uscito vincitore sarebbe stato ivestito di quel titolo." + "\n" +
-                                                               "con supremo orgoglio da parte del tuo capitano, fosti proprio tu a uscire vincitore da quella prova, ma sebbene onorato dall'incarico che ti sarebbe stato affidato; tuttavia," + "\n" +
-                                                               "quando realizzasti che il tuo destino sarebbe stato quello di rimanere confinato nel castello, anziché difendere il nome del re sul campo di battaglia, il mondo ti crollò sotto i piedi" + "\n" +
-                                                               "proprio per questo motivo, quando dopo un mese al servizio del re egli ti propose di lasciare il regno per intraprendere una missione di importanza vitale, accettasti senza esitare" + "\n" +
-                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." + "\n" +
-                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
+                document.getElementById("prologo").innerHTML = "Diventare un soldato dell'armata di re Yohr era sempre stato il tuo più grande desiderio" +
+                                                               "e non appena raggiungesti la maggiore età, ti arruolasti nell'accademia militare della capitale del regno;" +
+                                                               "grazie a una volontà incrollabile e a un addestramento ferreo vincesti presto la tua debole costituzione, diventando un eccellente guerriero." +
+                                                               "le tue abilità sorpresero piacevolmente il capitano a comando dell'accademia e, ti propose come candidato per il ruolo di guardia personale del re." +
+                                                               "la selezione della nuova guardia reale consisteva in una serie di duelli individuali, e chi ne sarebbe uscito vincitore sarebbe stato ivestito di quel titolo." +
+                                                               "con supremo orgoglio da parte del tuo capitano, fosti proprio tu a uscire vincitore da quella prova, ma sebbene onorato dall'incarico che ti sarebbe stato affidato; tuttavia," +
+                                                               "quando realizzasti che il tuo destino sarebbe stato quello di rimanere confinato nel castello, anziché difendere il nome del re sul campo di battaglia, il mondo ti crollò sotto i piedi" +
+                                                               "proprio per questo motivo, quando dopo un mese al servizio del re egli ti propose di lasciare il regno per intraprendere una missione di importanza vitale, accettasti senza esitare" +
+                                                               "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." +
+                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto";
             }
             else {
-                document.getElementById("prologo").innerHTML = "Fin da quando nascesti, in te si videro segni della stregoneria e si mostrarono con la forma di una runa nera tatuatati in fronte." +
+                document.getElementById("prologo").innerHTML = "Fin da quando nascesti, in te si videro segni della stregoneria e si mostrarono con la forma di una runa nera tatuatasi sulla tua fronte." +
                                                                "per la umile famiglia dalla quale provenivi, avere un figlio provvisto del dono della magia era un evento unico" +
                                                                "difatti, da che sia aveva memoria, l'abilità di piegare la realtà al proprio volere era stata detenta da solo dalle più nobili stirpi." +
                                                                "le tue innate abilità non tardarono a mostrarsi e fu presto chiaro che il tuo potenziale fosse immenso." +
@@ -103,54 +172,135 @@
                                                                "quando vi diplomaste, il vostro prossimo passo per diventare stregoni era compiere un viaggio per le terre del continente in modo tale da affinare le vostre menti, e le vostre abilità" +
                                                                "vi lasciaste con la promessa di riincontrarci una volta diventati degli stregoni a tutti gli effetti e partiste ognuno in una diversa direzione." +
                                                                "a un mese dalla tua partenza, finalmente giungi a destinazione: una cittadina di distinte dimensioni dal nome di 'Miskos'." +
-                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto"
+                                                               "era protetta da un muro di cinta, ed il muschio cresceva tra le rocce che lo componevano. quando varchi la soglia, ti imbatti in un uomo anziano che ti da il benvenuto";
             }
 //fine script del prologo  
         </script>
 
-        <div class="centro">
-            <div id="menu1" class="menu" style="visibility: hidden;">
-                <select id="selezioneSafe1">
-                    <option value="seleziona"> Scegli cosa fare </option>
-                    <option value="viaggia"> Viaggia </option>
-                    <option value="parla"> Parla </option>
-                    <option value="inventario"> Inventario </option>
-                </select>
-                <select id="selezioneViaggio1">
+        <div id="menu1" class="menu" style="visibility: hidden;">
+            <select id="selezioneSafe1">
+                <option value="seleziona"> Scegli cosa fare </option>
+                <option value="viaggia"> Viaggia </option>
+                <option value="parla"> Parla </option>
+                <option value="inventario"> Visualizza inventario </option>
+            </select>             
+            <select id="selezioneViaggio1" style="visibility: hidden;">   
+            </select>
+            <select id="selezioneParla1" style="visibility: hidden;">  
+            </select>
+        </div>
 
-                </select>
-            </div>
+        <div id="esitoSelezione" class="centro">
         </div>
         
         <script>
-// script viaggio
-            let location = {nome: "miscos", scoperto: true};
-            let strade = [];
-            let optionStrada;
+// inizio script creazione variabili
+            let currentLocation = {nome: "soglia di miskos"};
+            let currentStrade = [];
+            let currentNpc = [];
+            let listNpc = [
+                {nome: "anoc", conosciuto: true, confidenza: 1},
+                {nome: "roland mano di ferro", conosciuto: false, confidenza: 0},
+                {nome: "sindaco di miskos", conosciuto: false, confidenza: 0},
+                {nome: "wilhelm dai mille trucchi", conosciuto: false, confidenza: 0}
+            ];
+            let listLocation = [
+                {nome: "soglia di miskos", scoperto: true}, 
+                {nome: "miskos nord", scoperto: false},
+                {nome: "miskos sud-est", scoperto: false},
+                {nome: "miskos sud-ovest", scoperto: false}
+            ];
+            let mappa = {currentLocation, listLocation, listNpc};
+
 
             document.getElementById("selezioneSafe1").addEventListener("change", function(){
-                if(this.value === "viaggia"){
-                    viaggia("miskos");
+                if(this.value == "seleziona") {
+                    document.getElementById("selezioneViaggio1").style.visibility = "hidden";
+                    document.getElementById("selezioneParla1").style.visibility = "hidden";
+                }
+                if(this.value == "viaggia"){
+                    creazioneStrade(currentLocation.nome);
+                    document.getElementById("selezioneViaggio1").style.visibility = "visible";
+                    document.getElementById("selezioneParla1").style.visibility = "hidden";
+                }
+                if(this.value == "parla"){
+                    creazioneParla(currentLocation.nome);
+                    document.getElementById("selezioneViaggio1").style.visibility = "hidden";
+                    document.getElementById("selezioneParla1").style.visibility = "visible";
+                }
+                if(this.value == "inventario"){
+                    creazioneInventario("esitoSelezione");
+                    document.getElementById("selezioneParla1").style.visibility = "hidden"
+                    document.getElementById("selezioneViaggio1").style.visibility = "hidden";
                 }
             })
+// fine script creazione variabili
+// script viaggio
 
-            function viaggia(posizione){
-                strade = [];
-
-                if(posizione == 'miskos'){
-                    strade.push({nome: "nord", scoperto: false});
-                    strade.push({nome: "miskos nord", scoperto: false});
-                    strade.push({nome: "miskos sud-est", scoperto: false});
-                    strade.push({nome: "miskos sud-ovest", scoperto: false});
+            document.getElementById("selezioneViaggio1").addEventListener("change", function(){
+                currentLocation.nome = this.value;
+                for(let i = 0; i < listLocation.length; i++){
+                    if (listLocation[i].nome == currentLocation.nome){
+                        listLocation[i].scoperto = true;
+                    }
                 }
+                creazioneParla(currentLocation.nome);
+                creazioneStrade(currentLocation.nome);
+            })
+
+            function creazioneStrade(posizione){
+                currentStrade= [];
                 document.getElementById("selezioneViaggio1").innerHTML = "";
-                for(let i = 0; i < strade.length; i++){
-                    optionStrada = new Option("vai a " + strade[i].nome, strade[i].nome);
+
+                if(posizione == "soglia di miskos" || posizione == "miskos nord" || posizione == "miskos sud-est" || posizione == "miskos sud-ovest"){
+                    currentStrade = [
+                        {nome: "soglia di miskos"}, 
+                        {nome: "miskos nord"}, 
+                        {nome: "miskos sud-est"},
+                        {nome: "miskos sud-ovest"},
+                        {nome: "nord"}
+                    ];
+                }
+
+                let optionBase = new Option("Scegli dove andare", "base");
+                document.getElementById("selezioneViaggio1").appendChild(optionBase);
+
+                for(let i = 0; i < currentStrade.length; i++){
+                    let optionStrada = new Option("vai a: " + currentStrade[i].nome, currentStrade[i].nome);
                     document.getElementById("selezioneViaggio1").appendChild(optionStrada);
                 }
             }
+// fine script viaggio   
+// inizio script npc
+            function creazioneParla(posizione){
+                currentNpc = [];
+                document.getElementById("selezioneParla1").innerHTML = "";
+
+                if(posizione == "soglia di miskos"){
+                    currentNpc = [{nome: "Anoc"}];
+                }
+                else if (posizione == "miskos nord"){
+                    currentNpc = [{nome: "Anoc"}, {nome: "sindaco di miskos"}];
+                }
+                else if (posizione == "miskos sud-est"){
+                    currentNpc = [{nome: "Anoc"}, {nome: "wilhelm dai mille trucchi"}];
+                }
+                else if (posizione == "miskos sud-ovest"){
+                    currentNpc = [{nome: "Anoc"}, {nome: "roland mano di ferro"}];                    
+                }
+
+                let optionBase = new Option("Scegli con chi parlare", "base");
+                document.getElementById("selezioneParla1").appendChild(optionBase);
+
+                for(let i = 0; i < currentNpc.length; i++){
+                    let optionNpc = new Option("parla con " + currentNpc[i].nome, currentNpc[i].nome);
+                    document.getElementById("selezioneParla1").appendChild(optionNpc);
+                }
+            }
+// fine script npc 
+// script inventario
             
-// fine script viaggio               
+// fine script inventario           
         </script>
     </body>
 </html>
