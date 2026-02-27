@@ -1,0 +1,108 @@
+<html>
+  <head> </head>
+  <body>
+    <p>inserisci il nome</p>
+    <input type="text" id="nome" />
+    <p>inserisci il cognome</p>
+    <input type="text" id="cognome" />
+    <p>inserisci l'anno di nascita</p>
+    <input type="number" id="compleanno" />
+    <p>inserisci il cap</p>
+    <input type="number" id="cap" />
+    <p>inserisci la provinvia</p>
+
+    <select id="selectProvincia">
+      <option value="base">seleziona</option>
+      <option value="milano">milano</option>
+      <option value="pavia">pavia</option>
+    </select>
+
+    <p>inserisci la città</p>
+    <input type="text" id="citta" />
+    <p>inserisci l'indirizzo</p>
+    <input type="text" id="indirizzo" />
+    <p>selezione il genere</p>
+
+    <input type="radio" name="genere" value="maschio" />
+    <label for="genere">maschio</label> <br />
+    <input type="radio" name="genere" value="femmina" />
+    <label for="genere">femmina</label> <br />
+    <input type="radio" name="genere" value="non specificato" />
+    <label for="genere">preferisco non specificarlo</label> <br />
+
+    <p>seleziona i mezzi di trasporto</p>
+    <div>
+      <input type="checkbox" id="checkMacchina" value="macchina" />
+      <label> macchina </label> <br />
+      <input type="checkbox" id="checkMoto" value="moto" />
+      <label> moto </label> <br />
+      <input type="checkbox" id="checkCamion" value="camion" />
+      <label> camion </label> <br />
+      <input type="checkbox" id="checkBici" value="bici" />
+      <label> bici </label> <br />
+      <input type="checkbox" id="checkAereo" value="aereo" />
+      <label> aereo </label> <br />
+      <input type="checkbox" id="checkCavallo" value="cavallo" />
+      <label> cavallo </label> <br />
+      <input type="checkbox" id="checkTriciclo" value="triciclo" />
+      <label> triciclo </label> <br />
+    </div>
+
+    <p>seleziona la materia preferita</p>
+    <form id="formMaterie">
+      <select id="selectMaterie" multiple="multiple">
+        <option value="matematica">matematica</option>
+        <option value="inglese">inglese</option>
+        <option value="italiano">italiano</option>
+        <option value="storia">storia</option>
+        <option value="tps">tps</option>
+        <option value="tlc">tlc</option>
+        <option value="informatica">informatica</option>
+        <option value="religione">religione</option>
+        <option value="ed fisica">ed fisica</option>
+      </select>
+    </form>
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica()" />
+
+    <script>
+      let collection = [];
+      let oggetto = {
+          nome: "",
+          cognome: "",
+          compleanno: 0,
+          generazione: "",
+          cap: 0;
+          provincia: "",
+          città: "",
+          genere: "",
+          mezzo: "",
+          materia: [],
+        };
+      function anagrafica() {
+        oggetto.nome = document.getElementById("nome");
+        oggetto.cognome = document.getElementById("cognome");
+        oggetto.compleanno = document.getElementById("compleanno");
+        oggetto.cap = document.getElementById("cap");
+        for()
+      }
+      function provincia(prov){
+        oggetto.provincia = prov;
+      }
+      function materia(){
+        oggetto.materia = [];
+        option = document.formMaterie.selectMaterie.options;
+        for(let i = 0; i < option.length; i ++){
+            if (option[i].selected){
+                oggetto.materia.push(option[i].value);
+            }
+        }
+      }
+      function genere(gen){
+        oggetto.genere = gen;
+      }
+      function mezzo (mez){
+        oggetto.mezz = mez;
+      }
+    </script>
+  </body>
+</html>
