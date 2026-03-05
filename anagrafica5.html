@@ -9,7 +9,7 @@
     <input type="number" id="compleanno" />
     <p>inserisci il cap</p>
     <input type="number" id="cap" />
-    <p>inserisci la provinvia</p>
+    <p>inserisci la provincia</p>
 
     <select id="selectProvincia" onchange="provincia(document.getElementById('selectProvincia').value)">
       <option value="base">seleziona</option>
@@ -24,11 +24,11 @@
     <p>selezione il genere</p>
 
     <input type="radio" name="genere" value="maschio" onclick="genere('maschio')"/>
-    <label for="genere">maschio</label> <br />
+    <label>maschio</label> <br />
     <input type="radio" name="genere" value="femmina" onclick="genere('femmina')"/>
-    <label for="genere">femmina</label> <br />
+    <label>femmina</label> <br />
     <input type="radio" name="genere" value="non specificato" onclick="genere('non specificato')"/>
-    <label for="genere">preferisco non specificarlo</label> <br />
+    <label>preferisco non specificarlo</label> <br />
 
     <p>seleziona i mezzi di trasporto</p>
     <div>
@@ -62,7 +62,7 @@
         <option value="ed fisica">ed fisica</option>
       </select>
     </form>
-    <input type="button" id="stampa" value="stampa" onclick="anagrafica(), materia(), stampa(oggetto)" />
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica(); materia(); stampa(oggetto)" />
     <a href="anagraficaStampa.html">visualizza i dati</a>
 
     <script>
@@ -72,17 +72,17 @@
           cognome: "",
           compleanno: 0,
           generazione: "",
-          cap: 0;
+          cap: 0,
           provincia: "",
           città: "",
           genere: "",
-          mezzo: "",
+          mezzo: [],
           materia: [],
         };
 
       let CheckArray = [];
 
-      function CheckFunction(risposta){
+      function mezzo(risposta){
           let trovato = false;
           for (let j = 0; j < CheckArray.length; j++){
               if(CheckArray[j] == risposta){
@@ -103,11 +103,11 @@
       }
 
       function anagrafica() {
-        oggetto.nome = document.getElementById("nome");
-        oggetto.cognome = document.getElementById("cognome");
-        oggetto.compleanno = document.getElementById("compleanno");
-        oggetto.cap = document.getElementById("cap");
-        oggetto.città = document.getElementById("citta");
+        oggetto.nome = document.getElementById("nome").value;
+        oggetto.cognome = document.getElementById("cognome").value;
+        oggetto.compleanno = document.getElementById("compleanno").value;
+        oggetto.cap = document.getElementById("cap").value;
+        oggetto.città = document.getElementById("citta").value;
 
         switch(true){
                     case document.getElementById("compleanno").value > 2013:
@@ -135,7 +135,7 @@
       }
       function materia(){
         oggetto.materia = [];
-        option = document.formMaterie.selectMaterie.options;
+        option = document.getElementById("selectMaterie").options;
         for(let i = 0; i < option.length; i ++){
             if (option[i].selected){
                 oggetto.materia.push(option[i].value);
@@ -144,9 +144,6 @@
       }
       function genere(gen){
         oggetto.genere = gen;
-      }
-      function mezzo (mez){
-        oggetto.mezzo = mez;
       }
       function stampa(pacchetto){
         localStorage.setItem("pacco", JSON.stringify(pacchetto));
