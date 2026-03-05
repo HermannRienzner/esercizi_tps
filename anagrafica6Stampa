@@ -1,1 +1,127 @@
+<html>
+    <head>
+        <title>
+            local storage
+        </title>
+    </head>
+    <body>
+        <div>
+            <table style="display: flex; justify-content: space-around;">
+                <td style="text-align: left">
+                    <tr>
+                        <p>nome</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>cognome</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>e-mail</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>codice fiscale</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>indirizzo</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>città</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>CAP</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>anno di nascita</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>provincia</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>mezzi di trasporto</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>generazione</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>genere</p>
+                        <p></p>
+                    </tr>
+                    <tr>
+                        <p>materie</p>
+                        <p></p>
+                    </tr>
+                </td>
+                <td style="text-align: right">
+                    <tr>
+                        <p id="nome"></p>
+                    </tr>
+                    <tr>
+                        <p id="cognome"></p>
+                    </tr>
+                    <tr>
+                        <p id="email"></p>
+                    </tr>
+                    <tr>
+                        <p id="codiceFiscale"></p>
+                    </tr>
+                    <tr>
+                        <p id="indirizzo"></p>
+                    </tr>
+                    <tr>
+                        <p id="citta"></p>
+                    </tr>
+                    <tr>
+                        <p id="CAP"></p>
+                    </tr>
+                    <tr>
+                        <p id="comple"></p>
+                    </tr>
+                    <tr>
+                        <p id="provincia"></p>
+                    </tr>
+                    <tr>
+                        <p id="mezzo"></p>
+                    </tr>
+                    <tr>
+                        <p id="generazione"></p>
+                    </tr>
+                    <tr>
+                        <p id="genere"></p>
+                    </tr>
+                    <tr>
+                        <p id="materie"></p>
+                    </tr>
+                </td>
+            </table>
+            <a href="Anagrafica5.html"> torna alla pagina precedente </a>
 
+            <script>
+                let oggetto = JSON.parse(localStorage.getItem("pacco"));
+                document.getElementById("nome").innerHTML = oggetto.nome;
+                document.getElementById("cognome").innerHTML = oggetto.cognome;
+                document.getElementById("email").innerHTML = oggetto.cognome;
+                document.getElementById("codiceFiscale").innerHTML = oggetto.cognome;
+                document.getElementById("genere").innerHTML = oggetto.genere;
+                document.getElementById("provincia").innerHTML = oggetto.provincia;
+                document.getElementById("citta").innerHTML = oggetto.citta;
+                document.getElementById("mezzo").innerHTML = oggetto.mezzo;
+                document.getElementById("materie").innerHTML = oggetto.materia;
+                document.getElementById("generazione").innerHTML = oggetto.generazione;
+                document.getElementById("comple").innerHTML = oggetto.compleanno;
+                document.getElementById("CAP").innerHTML = oggetto.cap;
+                document.getElementById("indirizzo").innerHTML = oggetto.indirizzo;
+                
+            </script>
+        </div>
+    </body>
+</html>
