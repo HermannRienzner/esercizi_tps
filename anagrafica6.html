@@ -1,1 +1,167 @@
+<html>
+  <head> </head>
+  <body>
+    <p>inserisci il nome</p>
+    <input type="text" id="nome" />
+    <p>inserisci il cognome</p>
+    <input type="text" id="cognome" />
+    <p>inserisci l'anno di nascita</p>
+    <input type="number" id="compleanno" />
+    <p>inserisci il cap</p>
+    <input type="number" id="cap" />
+    <p>inserisci la provincia</p>
 
+    <select id="selectProvincia" onchange="provincia(this.value)">
+      <option value="base">seleziona</option>
+      <option value="milano">milano</option>
+      <option value="pavia">pavia</option>
+    </select>
+
+    <p>inserisci la città</p>
+    <input type="text" id="citta" />
+    <p>inserisci l'indirizzo</p>
+    <input type="text" id="indirizzo" />
+    <p>selezione il genere</p>
+
+    <input type="radio" name="genere" value="maschio" onclick="genere('maschio')"/>
+    <label>maschio</label> <br />
+    <input type="radio" name="genere" value="femmina" onclick="genere('femmina')"/>
+    <label>femmina</label> <br />
+    <input type="radio" name="genere" value="non specificato" onclick="genere('non specificato')"/>
+    <label>preferisco non specificarlo</label> <br />
+
+    <p>seleziona i mezzi di trasporto</p>
+    <div>
+      <input type="checkbox" id="checkMacchina" value="macchina" onclick="mezzo(this.value)"/>
+      <label> macchina </label> <br />
+      <input type="checkbox" id="checkMoto" value="moto" onclick="mezzo(this.value)"/>
+      <label> moto </label> <br />
+      <input type="checkbox" id="checkCamion" value="camion" onclick="mezzo(this.value)"/>
+      <label> camion </label> <br />
+      <input type="checkbox" id="checkBici" value="bici" onclick="mezzo(this.value)"/>
+      <label> bici </label> <br />
+      <input type="checkbox" id="checkAereo" value="aereo" onclick="mezzo(this.value)"/>
+      <label> aereo </label> <br />
+      <input type="checkbox" id="checkCavallo" value="cavallo" onclick="mezzo(this.value)"/>
+      <label> cavallo </label> <br />
+      <input type="checkbox" id="checkTriciclo" value="triciclo" onclick="mezzo(this.value)"/>
+      <label> triciclo </label> <br />
+    </div>
+
+    <p>seleziona la materia preferita</p>
+    <form id="formMaterie">
+      <select id="selectMaterie" multiple="multiple">
+        <option value="matematica">matematica</option>
+        <option value="inglese">inglese</option>
+        <option value="italiano">italiano</option>
+        <option value="storia">storia</option>
+        <option value="tps">tps</option>
+        <option value="tlc">tlc</option>
+        <option value="informatica">informatica</option>
+        <option value="religione">religione</option>
+        <option value="ed fisica">ed fisica</option>
+      </select>
+    </form>
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica(); materia(); stampa(oggetto)" />
+    <a href="anagraficaStampa.html">visualizza i dati</a>
+
+    <script>
+      let collection = [];
+      let oggetto = {
+          nome: "",
+          cognome: "",
+          compleanno: 0,
+          generazione: "",
+          cap: 0,
+          provincia: "",
+          citta: "",
+          genere: "",
+          mezzo: [],
+          materia: [],
+          indirizzo: ""
+        };
+
+      let CheckArray = [];
+
+      function mezzo(risposta){
+          let trovato = false;
+          for (let j = 0; j < CheckArray.length; j++){
+              if(CheckArray[j] == risposta){
+                  trovato = true;
+                  if(j == CheckArray.length -1) {
+                      CheckArray.pop();
+                  }
+                  else{
+                      CheckArray[j] = CheckArray[CheckArray.length -1];
+                      CheckArray.pop()
+                  }
+              }
+          }
+          if(trovato == false){
+              CheckArray.push(risposta);
+          }
+          oggetto.mezzo = CheckArray;
+      }
+
+      function anagrafica() {
+        oggetto.nome = document.getElementById("nome").value;
+        oggetto.cognome = document.getElementById("cognome").value;
+        oggetto.compleanno = document.getElementById("compleanno").value;
+        oggetto.cap = document.getElementById("cap").value;
+        oggetto.citta = document.getElementById("citta").value;
+        oggetto.indirizzo = document.getElementById("indirizzo").value;
+
+        switch(true){
+                    case document.getElementById("compleanno").value > 2013:
+                        oggetto.generazione = "generazione alpha";
+                    break 
+                    case document.getElementById("compleanno").value > 1997:
+                        oggetto.generazione = "generazione z";
+                    break
+                    case document.getElementById("compleanno").value > 1981:
+                        oggetto.generazione = "generazione millenials";
+                    break
+                    case document.getElementById("compleanno").value > 1965:
+                        oggetto.generazione = "generazione x";
+                    break
+                    case document.getElementById("compleanno").value > 1946:
+                        oggetto.generazione = "generazione baby boomers";
+                    break
+                    case document.getElementById("compleanno").value > 1928:
+                        oggetto.generazione = "generazione silenizosa";  
+                    break                   
+                }
+      }
+      function provincia(prov){
+        oggetto.provincia = prov;
+      }
+      function materia(){
+        oggetto.materia = [];
+        option = document.getElementById("selectMaterie").options;
+        for(let i = 0; i < option.length; i ++){
+            if (option[i].selected){
+                oggetto.materia.push(option[i].value);
+            }
+        }
+      }
+      function genere(gen){
+        oggetto.genere = gen;
+      }
+      function stampa(pacchetto){
+        localStorage.setItem("pacco", JSON.stringify(pacchetto));
+        oggetto = {
+          nome: "",
+          cognome: "",
+          compleanno: 0,
+          generazione: "",
+          cap: 0,
+          provincia: "",
+          citta: "",
+          genere: "",
+          mezzo: [],
+          materia: [],
+        };
+      }
+    </script>
+  </body>
+</html>
