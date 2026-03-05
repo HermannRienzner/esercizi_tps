@@ -11,7 +11,7 @@
     <input type="number" id="cap" />
     <p>inserisci la provinvia</p>
 
-    <select id="selectProvincia">
+    <select id="selectProvincia" onchange="provincia(document.getElementById('selectProvincia').value)">
       <option value="base">seleziona</option>
       <option value="milano">milano</option>
       <option value="pavia">pavia</option>
@@ -23,28 +23,28 @@
     <input type="text" id="indirizzo" />
     <p>selezione il genere</p>
 
-    <input type="radio" name="genere" value="maschio" />
+    <input type="radio" name="genere" value="maschio" onclick="genere('maschio')"/>
     <label for="genere">maschio</label> <br />
-    <input type="radio" name="genere" value="femmina" />
+    <input type="radio" name="genere" value="femmina" onclick="genere('femmina')"/>
     <label for="genere">femmina</label> <br />
-    <input type="radio" name="genere" value="non specificato" />
+    <input type="radio" name="genere" value="non specificato" onclick="genere('non specificato')"/>
     <label for="genere">preferisco non specificarlo</label> <br />
 
     <p>seleziona i mezzi di trasporto</p>
     <div>
-      <input type="checkbox" id="checkMacchina" value="macchina" />
+      <input type="checkbox" id="checkMacchina" value="macchina" onclick="mezzo(this.value)"/>
       <label> macchina </label> <br />
-      <input type="checkbox" id="checkMoto" value="moto" />
+      <input type="checkbox" id="checkMoto" value="moto" onclick="mezzo(this.value)"/>
       <label> moto </label> <br />
-      <input type="checkbox" id="checkCamion" value="camion" />
+      <input type="checkbox" id="checkCamion" value="camion" onclick="mezzo(this.value)"/>
       <label> camion </label> <br />
-      <input type="checkbox" id="checkBici" value="bici" />
+      <input type="checkbox" id="checkBici" value="bici" onclick="mezzo(this.value)"/>
       <label> bici </label> <br />
-      <input type="checkbox" id="checkAereo" value="aereo" />
+      <input type="checkbox" id="checkAereo" value="aereo" onclick="mezzo(this.value)"/>
       <label> aereo </label> <br />
-      <input type="checkbox" id="checkCavallo" value="cavallo" />
+      <input type="checkbox" id="checkCavallo" value="cavallo" onclick="mezzo(this.value)"/>
       <label> cavallo </label> <br />
-      <input type="checkbox" id="checkTriciclo" value="triciclo" />
+      <input type="checkbox" id="checkTriciclo" value="triciclo" onclick="mezzo(this.value)"/>
       <label> triciclo </label> <br />
     </div>
 
@@ -62,7 +62,7 @@
         <option value="ed fisica">ed fisica</option>
       </select>
     </form>
-    <input type="button" id="stampa" value="stampa" onclick="anagrafica()" />
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica(), materia()" />
 
     <script>
       let collection = [];
@@ -78,12 +78,56 @@
           mezzo: "",
           materia: [],
         };
+
+      let CheckArray = [];
+
+      function CheckFunction(risposta){
+          let trovato = false;
+          for (let j = 0; j < CheckArray.length; j++){
+              if(CheckArray[j] == risposta){
+                  trovato = true;
+                  if(j == CheckArray.length -1) {
+                      CheckArray.pop();
+                  }
+                  else{
+                      CheckArray[j] = CheckArray[CheckArray.length -1];
+                      CheckArray.pop()
+                  }
+              }
+          }
+          if(trovato == false){
+              CheckArray.push(risposta);
+          }
+          return(CheckArray);
+      }
+
       function anagrafica() {
         oggetto.nome = document.getElementById("nome");
         oggetto.cognome = document.getElementById("cognome");
         oggetto.compleanno = document.getElementById("compleanno");
         oggetto.cap = document.getElementById("cap");
-        for()
+        oggetto.città = document.getElementById("citta");
+
+        switch(true){
+                    case document.getElementById("compleanno").value > 2013:
+                        oggetto.generazione = "generazione alpha";
+                    break 
+                    case document.getElementById("compleanno").value > 1997:
+                        oggetto.generazione = "generazione z";
+                    break
+                    case document.getElementById("compleanno").value > 1981:
+                        oggetto.generazione = "generazione millenials";
+                    break
+                    case document.getElementById("compleanno").value > 1965:
+                        oggetto.generazione = "generazione x";
+                    break
+                    case document.getElementById("compleanno").value > 1946:
+                        oggetto.generazione = "generazione baby boomers";
+                    break
+                    case document.getElementById("compleanno").value > 1928:
+                        oggetto.generazione = "generazione silenizosa";  
+                    break                   
+                }
       }
       function provincia(prov){
         oggetto.provincia = prov;
@@ -101,7 +145,10 @@
         oggetto.genere = gen;
       }
       function mezzo (mez){
-        oggetto.mezz = mez;
+        oggetto.mezzo = mez;
+      }
+      function stampa(pacchetto){
+        localStorage.setItem("pacco", JSON.stringify(oggetto));
       }
     </script>
   </body>
