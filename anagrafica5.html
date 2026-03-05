@@ -62,7 +62,7 @@
         <option value="ed fisica">ed fisica</option>
       </select>
     </form>
-    <input type="button" id="stampa" value="stampa" onclick="anagrafica(), materia()" />
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica(), materia(), stampa(oggetto)" />
 
     <script>
       let collection = [];
@@ -148,7 +148,7 @@
         oggetto.mezzo = mez;
       }
       function stampa(pacchetto){
-        localStorage.setItem("pacco", JSON.stringify(oggetto));
+        localStorage.setItem("pacco", JSON.stringify(pacchetto));
       }
     </script>
   </body>
