@@ -10,53 +10,64 @@
                 <tr>
                     <td>
                         <p>nome</p>
-                        <p></p>
+                        <p id="nome"></p>
                     </td>
                     <td>
                         <p>cognome</p>
-                        <p></p>
+                        <p id="cognome"></p>
                     </td>
                     <td>
                         <p>indirizzo</p>
-                        <p></p>
+                        <p id="indirizzo"></p>
                     </td>
                     <td>
                         <p>città</p>
-                        <p></p>
+                        <p id="città"></p>
                     </td>
                     <td>
                         <p>CAP</p>
-                        <p></p>
+                        <p id="CAP"></p>
                     </td>
                     <td>
                         <p>anno di nascita</p>
-                        <p></p>
+                        <p id="comple"></p>
                     </td>
                     <td>
                         <p>provincia</p>
-                        <p></p>
+                        <p id="provincia"></p>
                     </td>
                     <td>
                         <p>mezzi di trasporto</p>
-                        <p></p>
+                        <p id="mezzi"></p>
                     </td>
                     <td>
                         <p>generazione</p>
-                        <p></p>
+                        <p id="generazione"></p>
                     </td>
                     <td>
                         <p>genere</p>
-                        <p></p>
+                        <p id="genere"></p>
                     </td>
                     <td>
                         <p>materie</p>
-                        <p></p>
+                        <p id="materie"></p>
                     </td>
                 </tr>
             </table>
 
             <script>
                 let oggetto = JSON.parse(localStorage.getItem("pacco"));
+                document.getElementById("nome").innerHTML = oggetto.nome;
+                document.getElementById("cognome").innerHTML = oggetto.cognome;
+                document.getElementById("genere").innerHTML = oggetto.genere;
+                document.getElementById("provincia").innerHTML = oggetto.provincia;
+                document.getElementById("citta").innerHTML = oggetto.citta;
+                document.getElementById("mezzi").innerHTML = oggetto.mezzi;
+                document.getElementById("materie").innerHTML = oggetto.materie;
+                document.getElementById("generazione").innerHTML = oggetto.generazione;
+                document.getElementById("comple").innerHTML = oggetto.compleanno;
+                document.getElementById("CAP").innerHTML = oggetto.cap;
+                document.getElementById("indirizzo").innerHTML = oggetto.indirizzo;
                 
             </script>
         </div>
