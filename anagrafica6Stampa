@@ -109,8 +109,8 @@
                 let oggetto = JSON.parse(localStorage.getItem("pacco"));
                 document.getElementById("nome").innerHTML = oggetto.nome;
                 document.getElementById("cognome").innerHTML = oggetto.cognome;
-                document.getElementById("email").innerHTML = oggetto.cognome;
-                document.getElementById("codiceFiscale").innerHTML = oggetto.cognome;
+                document.getElementById("email").innerHTML = oggetto.email;
+                document.getElementById("codiceFiscale").innerHTML = oggetto.codiceFiscale;
                 document.getElementById("genere").innerHTML = oggetto.genere;
                 document.getElementById("provincia").innerHTML = oggetto.provincia;
                 document.getElementById("citta").innerHTML = oggetto.citta;
