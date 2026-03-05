@@ -85,7 +85,7 @@
 
       function mezzo(risposta){
           let trovato = false;
-          for (let j = 0; j < 7; j++){
+          for (let j = 0; j < CheckArray.length; j++){
               if(CheckArray[j] == risposta){
                   trovato = true;
                   if(j == CheckArray.length -1) {
@@ -100,7 +100,7 @@
           if(trovato == false){
               CheckArray.push(risposta);
           }
-          return(CheckArray);
+          oggetto.mezzo = CheckArray;
       }
 
       function anagrafica() {
