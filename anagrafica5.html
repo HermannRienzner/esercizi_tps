@@ -11,7 +11,7 @@
     <input type="number" id="cap" />
     <p>inserisci la provincia</p>
 
-    <select id="selectProvincia" onchange="provincia(document.getElementById('selectProvincia').value)">
+    <select id="selectProvincia" onchange="provincia(this.value)">
       <option value="base">seleziona</option>
       <option value="milano">milano</option>
       <option value="pavia">pavia</option>
@@ -74,7 +74,7 @@
           generazione: "",
           cap: 0,
           provincia: "",
-          città: "",
+          citta: "",
           genere: "",
           mezzo: [],
           materia: [],
@@ -107,7 +107,7 @@
         oggetto.cognome = document.getElementById("cognome").value;
         oggetto.compleanno = document.getElementById("compleanno").value;
         oggetto.cap = document.getElementById("cap").value;
-        oggetto.città = document.getElementById("citta").value;
+        oggetto.citta = document.getElementById("citta").value;
 
         switch(true){
                     case document.getElementById("compleanno").value > 2013:
@@ -147,6 +147,18 @@
       }
       function stampa(pacchetto){
         localStorage.setItem("pacco", JSON.stringify(pacchetto));
+        oggetto = {
+          nome: "",
+          cognome: "",
+          compleanno: 0,
+          generazione: "",
+          cap: 0,
+          provincia: "",
+          citta: "",
+          genere: "",
+          mezzo: [],
+          materia: [],
+        };
       }
     </script>
   </body>
