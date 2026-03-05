@@ -10,55 +10,54 @@
                 <tr>
                     <td>
                         <p>nome</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>cognome</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>indirizzo</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>città</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>CAP</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>anno di nascita</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>provincia</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>mezzi di trasporto</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>generazione</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>genere</p>
+                        <p></p>
                     </td>
                     <td>
                         <p>materie</p>
+                        <p></p>
                     </td>
-                </tr>
-                <tr id="rigaElementi">
-
                 </tr>
             </table>
 
             <script>
-                let riga = document.getElementById("rigaElementi").innerHTML
-                let oggetto = JSON.parse(localStorage.getItem("elenco"));
-                let td
-                let p
-                for(let i = 0; i < oggetto.length; i++) {
-                    td = document.createElement("td")
-                    p = document.createElement("p")
-                    p.textContent = oggetto[i].valore
-                    td.appendChild(p)
-                    riga.appendChild(td)
-                }
+                let oggetto = JSON.parse(localStorage.getItem("pacco"));
+                
             </script>
         </div>
     </body>
