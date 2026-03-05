@@ -2,13 +2,13 @@
   <head> </head>
   <body>
     <p>inserisci il nome</p>
-    <input type="text" id="nome" />
+    <input type="text" id="nome" pattern="[A-Za-z]"/>
     <p>inserisci il cognome</p>
-    <input type="text" id="cognome" />
+    <input type="text" id="cognome" pattern="[A-Za-z]"/>
     <p>inserisci l'anno di nascita</p>
     <input type="number" id="compleanno" />
     <p>inserisci il cap</p>
-    <input type="number" id="cap" />
+    <input type="text" id="cap" pattern="[0-9]{5}"/>
     <p>inserisci la provincia</p>
 
     <select id="selectProvincia" onchange="provincia(this.value)">
