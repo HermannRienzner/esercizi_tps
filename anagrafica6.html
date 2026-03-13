@@ -2,59 +2,61 @@
   <head> </head>
   <body>
     <p>inserisci il nome</p>
-    <input type="text" id="nome" pattern="[A-Za-z]"/>
+    <input type="text" id="nome" pattern="[A-Za-z]{2,}" title="devi inserire più di due lettere" required>
     <p>inserisci il cognome</p>
-    <input type="text" id="cognome" pattern="[A-Za-z]"/>
+    <input type="text" id="cognome" pattern="[A-Za-z]{2,}" title="devi inserire più di due lettere" required>
     <p>inserisci l'e-mail</p>
-    <input type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    <input type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="l'email presenta le parti necessarie per la validazione" required>
     <p>inserisci il codice fiscale</p>
-    <input type="text" id="codiceFiscale" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$">
+    <input type="text" id="codiceFiscale" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" title="il codice fiscale non è composto correttamente" required>
     <p>inserisci l'anno di nascita</p>
-    <input type="number" id="compleanno" />
+    <input type="number" id="compleanno" required/>
     <p>inserisci il cap</p>
-    <input type="text" id="cap" pattern="[0-9]{5}"/>
+    <input type="text" id="cap" pattern="[0-9]{5}" title="devi inserire cinque numeri" required>
     <p>inserisci la provincia</p>
 
-    <select id="selectProvincia" onchange="provincia(this.value)">
+    <select id="selectProvincia" onchange="provincia(this.value)" required>
+      <option value=""></option>
       <option value="base">seleziona</option>
       <option value="milano">milano</option>
       <option value="pavia">pavia</option>
     </select>
 
     <p>inserisci la città</p>
-    <input type="text" id="citta" />
+    <input type="text" id="citta" required>
     <p>inserisci l'indirizzo</p>
-    <input type="text" id="indirizzo" />
+    <input type="text" id="indirizzo" required>
     <p>selezione il genere</p>
 
-    <input type="radio" name="genere" value="maschio" onclick="genere('maschio')"/>
+    <input type="radio" name="genere" value="maschio" onclick="genere('maschio')" required>
     <label>maschio</label> <br />
-    <input type="radio" name="genere" value="femmina" onclick="genere('femmina')"/>
+    <input type="radio" name="genere" value="femmina" onclick="genere('femmina')" required>
     <label>femmina</label> <br />
-    <input type="radio" name="genere" value="non specificato" onclick="genere('non specificato')"/>
+    <input type="radio" name="genere" value="non specificato" onclick="genere('non specificato')" required>
     <label>preferisco non specificarlo</label> <br />
 
     <p>seleziona i mezzi di trasporto</p>
     <div>
-      <input type="checkbox" id="checkMacchina" value="macchina" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkMacchina" value="macchina" onclick="mezzo(this.value)">
       <label> macchina </label> <br />
-      <input type="checkbox" id="checkMoto" value="moto" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkMoto" value="moto" onclick="mezzo(this.value)">
       <label> moto </label> <br />
-      <input type="checkbox" id="checkCamion" value="camion" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkCamion" value="camion" onclick="mezzo(this.value)">
       <label> camion </label> <br />
-      <input type="checkbox" id="checkBici" value="bici" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkBici" value="bici" onclick="mezzo(this.value)">
       <label> bici </label> <br />
-      <input type="checkbox" id="checkAereo" value="aereo" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkAereo" value="aereo" onclick="mezzo(this.value)">
       <label> aereo </label> <br />
-      <input type="checkbox" id="checkCavallo" value="cavallo" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkCavallo" value="cavallo" onclick="mezzo(this.value)">
       <label> cavallo </label> <br />
-      <input type="checkbox" id="checkTriciclo" value="triciclo" onclick="mezzo(this.value)"/>
+      <input type="checkbox" id="checkTriciclo" value="triciclo" onclick="mezzo(this.value)">
       <label> triciclo </label> <br />
     </div>
 
     <p>seleziona la materia preferita</p>
     <form id="formMaterie">
-      <select id="selectMaterie" multiple="multiple">
+      <select id="selectMaterie" multiple="multiple" required>
+        <option value=""></option>
         <option value="matematica">matematica</option>
         <option value="inglese">inglese</option>
         <option value="italiano">italiano</option>
@@ -66,7 +68,7 @@
         <option value="ed fisica">ed fisica</option>
       </select>
     </form>
-    <input type="button" id="stampa" value="stampa" onclick="anagrafica(); materia(); stampa(oggetto)" />
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica(); materia(); stampa(oggetto)" >
     <a href="anagrafica6Stampa.html">visualizza i dati</a>
 
     <script>
@@ -136,7 +138,7 @@
                         oggetto.generazione = "generazione baby boomers";
                     break
                     case document.getElementById("compleanno").value > 1928:
-                        oggetto.generazione = "generazione silenizosa";  
+                        oggetto.generazione = "generazione silenziosa";  
                     break                   
                 }
       }
@@ -145,7 +147,7 @@
       }
       function materia(){
         oggetto.materia = [];
-        option = document.getElementById("selectMaterie").options;
+        let option = document.getElementById("selectMaterie").options;
         for(let i = 0; i < option.length; i ++){
             if (option[i].selected){
                 oggetto.materia.push(option[i].value);
@@ -160,6 +162,8 @@
         oggetto = {
           nome: "",
           cognome: "",
+          email:"",
+          codiceFiscale: "",
           compleanno: 0,
           generazione: "",
           cap: 0,
@@ -168,6 +172,7 @@
           genere: "",
           mezzo: [],
           materia: [],
+          indirizzo: ""
         };
       }
     </script>
