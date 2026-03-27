@@ -106,20 +106,23 @@
             <a href="Anagrafica5.html"> torna alla pagina precedente </a>
 
             <script>
-                let oggetto = JSON.parse(localStorage.getItem("pacco"));
-                document.getElementById("nome").innerHTML = oggetto.nome;
-                document.getElementById("cognome").innerHTML = oggetto.cognome;
-                document.getElementById("email").innerHTML = oggetto.email;
-                document.getElementById("codiceFiscale").innerHTML = oggetto.codiceFiscale;
-                document.getElementById("genere").innerHTML = oggetto.genere;
-                document.getElementById("provincia").innerHTML = oggetto.provincia;
-                document.getElementById("citta").innerHTML = oggetto.citta;
-                document.getElementById("mezzo").innerHTML = oggetto.mezzo;
-                document.getElementById("materie").innerHTML = oggetto.materia;
-                document.getElementById("generazione").innerHTML = oggetto.generazione;
-                document.getElementById("comple").innerHTML = oggetto.compleanno;
-                document.getElementById("CAP").innerHTML = oggetto.cap;
-                document.getElementById("indirizzo").innerHTML = oggetto.indirizzo;
+                let collection = JSON.parse(localStorage.getItem("pacco"));
+                for(let i = 0; i < collection.length; i++){
+                    document.getElementById("nome").innerHTML += collection[i].nome;
+                    document.getElementById("cognome").innerHTML += collection[i].cognome;
+                    document.getElementById("email").innerHTML += collection[i].email;
+                    document.getElementById("codiceFiscale").innerHTML += collection[i].codiceFiscale;
+                    document.getElementById("genere").innerHTML += collection[i].genere;
+                    document.getElementById("provincia").innerHTML += collection[i].provincia;
+                    document.getElementById("citta").innerHTML += collection[i].citta;
+                    document.getElementById("mezzo").innerHTML += collection[i].mezzo;
+                    document.getElementById("materie").innerHTML += collection[i].materia;
+                    document.getElementById("generazione").innerHTML += collection[i].generazione;
+                    document.getElementById("comple").innerHTML += collection[i].compleanno;
+                    document.getElementById("CAP").innerHTML += collection[i].cap;
+                    document.getElementById("indirizzo").innerHTML += ogcollection[i].indirizzo;
+                }
+                
                 
             </script>
         </div>

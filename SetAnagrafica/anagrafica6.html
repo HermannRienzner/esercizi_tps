@@ -3,26 +3,26 @@
   <body>
     <p>inserisci il nome</p>
     <input type="text" id="nome" title="devi inserire più di due lettere" required>
-    <p id="errnome" style="color: red;">devi inserire due lettere o più</p>
+    <p id="errnome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
 
     <p>inserisci il cognome</p>
     <input type="text" id="cognome" required>
-    <p id="errcognome" style="color: red;">devi inserire due lettere o più</p>
+    <p id="errcognome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
 
     <p>inserisci l'e-mail</p>
     <input type="text" id="email" required>
-    <p id="erremail" style="color: red;">l'email presenta le parti necessarie per la validazione</p>
+    <p id="erremail" style="color: red; visibility: hidden;">l'email presenta le parti necessarie per la validazione</p>
 
     <p>inserisci il codice fiscale</p>
     <input type="text" id="codiceFiscale" required>
-    <p id="errcodicefiscale" style="color: red;"> il codice fiscale non è composto correttamente </p>
+    <p id="errcodicefiscale" style="color: red; visibility: hidden;"> il codice fiscale non è composto correttamente </p>
 
     <p>inserisci l'anno di nascita</p>
     <input type="number" id="compleanno" required/>
 
     <p>inserisci il cap</p>
     <input type="text" id="cap" required>
-    <p id="errcap" style="color: red;"> devi inserire cinque numeri </p>
+    <p id="errcap" style="color: red; visibility: hidden;"> devi inserire cinque numeri </p>
 
     <p>inserisci la provincia</p>
     <select id="selectProvincia" onchange="provincia(this.value)" required>
