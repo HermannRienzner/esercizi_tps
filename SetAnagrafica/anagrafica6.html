@@ -145,18 +145,21 @@
 
         if(patternTesto.test(nome)){
           oggetto.nome = nome;
+          document.getElementById("errnome").style.visibility = "hidden";
         }
         else{
           document.getElementById("errnome").style.visibility = "visible";
         }
         if(patternTesto.test(cognome)){
           oggetto.cognome = cognome;
+          document.getElementById("errcognome").style.visibility = "hidden";
         }
         else{
           document.getElementById("errcognome").style.visibility = "visible";
         }
         if(patternEmail.test(email)){
           oggetto.email = email;
+          document.getElementById("erremail").style.visibility = "hidden";
         }
         else{
           document.getElementById("erremail").style.visibility = "visible";
@@ -166,13 +169,17 @@
         }
         else{
           document.getElementById("errcodicefiscale").style.visibility = "visible";
+          document.getElementById("errcodicefiscale").style.visibility = "hidden";
         }
         if(patternCap.test(cap)){
           oggetto.cap = cap;
+          document.getElementById("errcap").style.visibility = "hidden";
         }
         else{
           document.getElementById("errcap").style.visibility = "visible";
         }
+        oggetto.citta = citta;
+        oggetto.indirizzo = indirizzo;
 
         switch(true){
                     case document.getElementById("compleanno").value > 2013:
