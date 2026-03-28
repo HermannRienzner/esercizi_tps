@@ -80,9 +80,13 @@
       </select>
     </form>
     <input type="button" id="stampa" value="stampa" onclick="anagrafica(); materia(); " >
-    <a href="anagrafica6Stampa.html" onclick="stampa(oggetto)">visualizza i dati</a>
+    <a href="/lavori_tps/SetAnagrafica/anagrafica6Stampa.html" onclick="stampa(oggetto)">visualizza i dati</a>
 
     <script>
+
+
+//inizio Javascript
+
 
       const patternTesto = /[A-Za-z]{2,}/;
       const patternCap = /[0-9]{5}/ 
@@ -211,21 +215,6 @@
       function stampa(){
         collection.push(oggetto);
         localStorage.setItem("pacco", JSON.stringify(collection));
-        oggetto = {
-          nome: "",
-          cognome: "",
-          email:"",
-          codiceFiscale: "",
-          compleanno: 0,
-          generazione: "",
-          cap: 0,
-          provincia: "",
-          citta: "",
-          genere: "",
-          mezzo: [],
-          materia: [],
-          indirizzo: ""
-        };
       }
     </script>
   </body>

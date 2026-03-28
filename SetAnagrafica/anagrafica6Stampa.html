@@ -107,6 +107,20 @@
 
             <script>
                 let collection = JSON.parse(localStorage.getItem("pacco"));
+                document.getElementById("nome").innerHTML = "";
+                document.getElementById("cognome").innerHTML = "";
+                document.getElementById("email").innerHTML = "";
+                document.getElementById("codiceFiscale").innerHTML = "";
+                document.getElementById("genere").innerHTML = "";
+                document.getElementById("provincia").innerHTML = "";
+                document.getElementById("citta").innerHTML = "";
+                document.getElementById("mezzo").innerHTML = "";
+                document.getElementById("materie").innerHTML = "";
+                document.getElementById("generazione").innerHTML = "";
+                document.getElementById("comple").innerHTML = "";
+                document.getElementById("CAP").innerHTML = "";
+                document.getElementById("indirizzo").innerHTML = "";
+
                 for(let i = 0; i < collection.length; i++){
                     document.getElementById("nome").innerHTML += collection[i].nome;
                     document.getElementById("cognome").innerHTML += collection[i].cognome;
@@ -121,9 +135,7 @@
                     document.getElementById("comple").innerHTML += collection[i].compleanno;
                     document.getElementById("CAP").innerHTML += collection[i].cap;
                     document.getElementById("indirizzo").innerHTML += collection[i].indirizzo;
-                }
-                
-                
+                }  
             </script>
         </div>
     </body>
