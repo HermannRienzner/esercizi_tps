@@ -180,6 +180,7 @@
         }
         oggetto.citta = citta;
         oggetto.indirizzo = indirizzo;
+        oggetto.compleanno = document.getElementById("compleanno");
 
         switch(true){
                     case document.getElementById("compleanno").value > 2013:
@@ -222,6 +223,22 @@
       function stampa(){
         collection.push(oggetto);
         localStorage.setItem("pacco", JSON.stringify(collection));
+        
+        let oggetto = {
+          nome: "",
+          cognome: "",
+          email:"",
+          codiceFiscale: "",
+          compleanno: 0,
+          generazione: "",
+          cap: 0,
+          provincia: "",
+          citta: "",
+          genere: "",
+          mezzo: [],
+          materia: [],
+          indirizzo: ""
+        };
       }
     </script>
   </body>
