@@ -5,104 +5,40 @@
         </title>
     </head>
     <body>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <p>nome</p> <br>
+                <p>cognome</p> <br>
+                <p>e-mail</p> <br>
+                <p>codice fiscale</p> <br>
+                <p>indirizzo</p> <br>
+                <p>città</p> <br>
+                <p>CAP</p> <br>
+                <p>anno di nascita</p> <br>
+                <p>provincia</p> <br>
+                <p>mezzi di trasporto</p> <br>
+                <p>generazione</p> <br>
+                <p>genere</p> <br>
+                <p>materie</p> <br>
+            </div>
+            <div>
+                <p id="nome"></p> <br>
+                <p id="cognome"></p> <br>
+                <p id="email"></p> <br>
+                <p id="codiceFiscale"></p> <br>
+                <p id="indirizzo"></p> <br>
+                <p id="citta"></p> <br>
+                <p id="CAP"></p> <br>
+                <p id="comple"></p> <br>
+                <p id="provincia"></p> <br>
+                <p id="mezzo"></p> <br>
+                <p id="generazione"></p> <br>
+                <p id="genere"></p> <br>
+                <p id="materie"></p> <br>
+            </div>
+        </div>
         <div>
-            <table style="display: flex; justify-content: space-around;">
-                <td style="text-align: left">
-                    <tr>
-                        <p>nome</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>cognome</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>e-mail</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>codice fiscale</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>indirizzo</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>città</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>CAP</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>anno di nascita</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>provincia</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>mezzi di trasporto</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>generazione</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>genere</p>
-                        <p></p>
-                    </tr>
-                    <tr>
-                        <p>materie</p>
-                        <p></p>
-                    </tr>
-                </td>
-                <td style="text-align: right">
-                    <tr>
-                        <p id="nome"></p>
-                    </tr>
-                    <tr>
-                        <p id="cognome"></p>
-                    </tr>
-                    <tr>
-                        <p id="email"></p>
-                    </tr>
-                    <tr>
-                        <p id="codiceFiscale"></p>
-                    </tr>
-                    <tr>
-                        <p id="indirizzo"></p>
-                    </tr>
-                    <tr>
-                        <p id="citta"></p>
-                    </tr>
-                    <tr>
-                        <p id="CAP"></p>
-                    </tr>
-                    <tr>
-                        <p id="comple"></p>
-                    </tr>
-                    <tr>
-                        <p id="provincia"></p>
-                    </tr>
-                    <tr>
-                        <p id="mezzo"></p>
-                    </tr>
-                    <tr>
-                        <p id="generazione"></p>
-                    </tr>
-                    <tr>
-                        <p id="genere"></p>
-                    </tr>
-                    <tr>
-                        <p id="materie"></p>
-                    </tr>
-                </td>
-            </table>
+        
             <a href="/lavori_tps/SetAnagrafica/Anagrafica6.html"> torna alla pagina precedente </a>
 
             <script>
@@ -122,19 +58,19 @@
                 document.getElementById("indirizzo").innerHTML = "";
 
                 for(let i = 0; i < collection.length; i++){
-                    document.getElementById("nome").innerHTML += collection[i].nome;
-                    document.getElementById("cognome").innerHTML += collection[i].cognome;
-                    document.getElementById("email").innerHTML += collection[i].email;
-                    document.getElementById("codiceFiscale").innerHTML += collection[i].codiceFiscale;
-                    document.getElementById("genere").innerHTML += collection[i].genere;
-                    document.getElementById("provincia").innerHTML += collection[i].provincia;
-                    document.getElementById("citta").innerHTML += collection[i].citta;
-                    document.getElementById("mezzo").innerHTML += collection[i].mezzo;
-                    document.getElementById("materie").innerHTML += collection[i].materia;
-                    document.getElementById("generazione").innerHTML += collection[i].generazione;
-                    document.getElementById("comple").innerHTML += collection[i].compleanno;
-                    document.getElementById("CAP").innerHTML += collection[i].cap;
-                    document.getElementById("indirizzo").innerHTML += collection[i].indirizzo;
+                    document.getElementById("nome").innerHTML += collection[i].nome + ", ";
+                    document.getElementById("cognome").innerHTML += collection[i].cognome + ", ";
+                    document.getElementById("email").innerHTML += collection[i].email + ", ";
+                    document.getElementById("codiceFiscale").innerHTML += collection[i].codiceFiscale + ", ";
+                    document.getElementById("genere").innerHTML += collection[i].genere + ", ";
+                    document.getElementById("provincia").innerHTML += collection[i].provincia + ", ";
+                    document.getElementById("citta").innerHTML += collection[i].citta + ", ";
+                    document.getElementById("mezzo").innerHTML += collection[i].mezzo + ", ";
+                    document.getElementById("materie").innerHTML += collection[i].materia + ", ";
+                    document.getElementById("generazione").innerHTML += collection[i].generazione + ", ";
+                    document.getElementById("comple").innerHTML += collection[i].compleanno + ", ";
+                    document.getElementById("CAP").innerHTML += collection[i].cap + ", ";
+                    document.getElementById("indirizzo").innerHTML += collection[i].indirizzo + ", ";
                 }  
             </script>
         </div>
