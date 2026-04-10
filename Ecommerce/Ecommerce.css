@@ -1,0 +1,9 @@
+.spostamento{
+    display: flex;
+    justify-content: space-around;
+
+    background-color: deepskyblue;
+    color: beige;
+    text-decoration: none;
+    border-radius: 3%;
+}
