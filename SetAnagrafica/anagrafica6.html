@@ -79,15 +79,11 @@
         <option value="ed fisica">ed fisica</option>
       </select>
     </form>
-    <input type="button" id="stampa" value="stampa" onclick="anagrafica(); materia(); " >
-    <a href="/esercizi_tps/SetAnagrafica/anagrafica6Stampa.html" onclick="stampa(oggetto)">visualizza i dati</a>
+    <input type="button" id="stampa" value="stampa" onclick="anagrafica(); stampa(oggetto);" >
+    <a href="/esercizi_tps/SetAnagrafica/anagrafica6Stampa.html">visualizza i dati</a>
 
     <script>
-
-
 //inizio Javascript
-
-
       const patternTesto = /[A-Za-z]{2,}/;
       const patternCap = /[0-9]{5}/ 
       const patternEmail= /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
@@ -204,10 +200,13 @@
                     default:
                         oggetto.generazione = "generazione non pervenuta";              
                 }
+        materia();        
       }
+
       function provincia(prov){
         oggetto.provincia = prov;
       }
+
       function materia(){
         oggetto.materia = [];
         let option = document.getElementById("selectMaterie").options;
@@ -217,14 +216,16 @@
             }
         }
       }
+
       function genere(gen){
         oggetto.genere = gen;
       }
-      function stampa(){
-        collection.push(oggetto);
+
+      function stampa(pacchetto){
+        collection.push(pacchetto);
         localStorage.setItem("pacco", JSON.stringify(collection));
         
-        let oggetto = {
+          oggetto = {
           nome: "",
           cognome: "",
           email:"",
