@@ -1,12 +1,16 @@
-.spostamento{
-    display: flex;
-    justify-content: space-around;
+.spostamento {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    background-color: deepskyblue;
-    color: beige;
-    text-decoration: none;
-    border-radius: 3%;
+  background-color: deepskyblue;
+  border-radius: 20px;
+  height: 5%;
 }
-body{
-    background-color: beige;
+body {
+  background-color: beige;
+}
+.link {
+  text-decoration: none;
+  color: beige;
 }
