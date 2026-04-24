@@ -3,14 +3,88 @@
     <title>
       Registrazione
     </title>
+    <script src="Ecommerce.js"></script>
   </head>
   <body>
-    <div class="spostamento">
-      <a href="home.html">Home</a>
-      <a href="registrazione.html">Registrazione</a>
-      <a href="carrello.html">Carrello</a>
-      <a href="assistenza.html">Assistenza</a>
-      <a href="cronologia.html">Cronologia ordini</a>
-    </div>
+    <p>inserisci il nome</p>
+    <input type="text" id="nome" title="devi inserire più di due lettere" required>
+    <p id="errnome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
+
+    <p>inserisci il cognome</p>
+    <input type="text" id="cognome" required>
+    <p id="errcognome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
+
+    <p>inserisci il cap</p>
+    <input type="text" id="cap" required>
+    <p id="errcap" style="color: red; visibility: hidden;"> devi inserire cinque numeri </p>
+
+    <p>inserisci l'indirizzo</p>
+    <input type="text" id="indirizzo" required>
+
+    <p>inserisci l'e-mail</p>
+    <input type="text" id="email" required>
+    <p id="erremail" style="color: red; visibility: hidden;">l'email presenta le parti necessarie per la validazione</p>
+    
+    <p>inserisci la password</p>
+    <input type="text" id="password">
+    <p id="errpassword" style="color: red; visibility: hidden;">la password presenta le parti necessarie per la validazione</p>
+
+    <input type="button" id="registrati" value="registrati">
+    <script>
+      let oggetto = {
+        nome: "", cognome: "", cap: 0, indirizzo: "", email: "", password: ""
+      }
+
+      const patternTesto = /[A-Za-z]{2,}/;
+      const patternCap = /[0-9]{5}/ 
+      const patternEmail= /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      const patternPassword = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+      const patternCodice =/^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$/
+
+      function registrazione(){
+        
+        let nome = document.getElementById("nome").value;
+        let cognome = document.getElementById("cognome").value
+        let cap = document.getElementById("cap").value;
+        let indirizzo = document.getElementById("indirizzo").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if(patternTesto.test(nome)){
+          utente.nome = nome;
+          document.getElementById("errnome").style.visibility = "hidden";
+        }
+        else{
+          document.getElementById("errnome").style.visibility = "visible";
+        }
+        if(patternTesto.test(cognome)){
+          utente.cognome = cognome;
+          document.getElementById("errcognome").style.visibility = "hidden";
+        }
+        else{
+          document.getElementById("errcognome").style.visibility = "visible";
+        }
+        
+        utente.indirizzo = indirizzo;
+        utente.cap = cap;
+
+        if(patternEmail.test(email)){
+          utente.email = email;
+          document.getElementById("erremail").style.visibility = "hidden";
+        }
+        else{
+          document.getElementById("erremail").style.visibility = "visible";
+        }
+        if(patternPassword.test(password)){
+          utente.password = password;
+          document.getElementById("errpassword").style.visibility = "hidden";
+        }
+        else{
+          document.getElementById("errpassword").style.visibility = "visible";
+        }
+
+        console.log(utente.nome);
+      }
+    </script>
   </body>
 </html>
