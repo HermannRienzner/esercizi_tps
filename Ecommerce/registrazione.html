@@ -31,11 +31,12 @@
     <p id="errpassword" style="color: red; visibility: hidden;">la password presenta le parti necessarie per la validazione</p>
 
     <input type="button" id="registrati" value="registrati">
+    <button onclick="registrazione()">registrati</button>
+    
     <script>
       let oggetto = {
         nome: "", cognome: "", cap: 0, indirizzo: "", email: "", password: ""
       }
-
       const patternTesto = /[A-Za-z]{2,}/;
       const patternCap = /[0-9]{5}/ 
       const patternEmail= /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
