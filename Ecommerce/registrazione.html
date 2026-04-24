@@ -20,7 +20,8 @@
 
     <p>inserisci l'indirizzo</p>
     <input type="text" id="indirizzo" required>
-    <br>
+    <p id="errindirizzo" style="color: red; visibility: hidden;">l'indirizzo presenta le parti necessarie per la validazione</p>
+
 
     <p>inserisci l'e-mail</p>
     <input type="text" id="email" required>
@@ -30,7 +31,6 @@
     <input type="text" id="password">
     <p id="errpassword" style="color: red; visibility: hidden;">la password presenta le parti necessarie per la validazione</p>
 
-    <input type="button" id="registrati" value="registrati">
     <button onclick="registrazione()">registrati</button>
     
     <script>
@@ -41,8 +41,6 @@
       const patternCap = /[0-9]{5}/ 
       const patternEmail= /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
       const patternPassword = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
-      const patternCodice =/^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$/
-
       function registrazione(){
         
         let nome = document.getElementById("nome").value;
@@ -66,10 +64,20 @@
         else{
           document.getElementById("errcognome").style.visibility = "visible";
         }
-        
-        utente.indirizzo = indirizzo;
-        utente.cap = cap;
-
+        if(patternTesto.test(indirizzo)){
+          utente.indirizzo = indirizzo;
+          document.getElementById("errindirizzo").style.visibility = "hidden";
+        }
+        else{
+          document.getElementById("errindirizzo").style.visibility = "visible";
+        }        
+        if(patternCap.test(cap)){
+          oggetto.cap = cap;
+          document.getElementById("errcap").style.visibility = "hidden";
+        }
+        else{
+          document.getElementById("errcap").style.visibility = "visible";
+        }
         if(patternEmail.test(email)){
           utente.email = email;
           document.getElementById("erremail").style.visibility = "hidden";
