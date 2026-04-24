@@ -40,7 +40,8 @@
       const patternTesto = /[A-Za-z]{2,}/;
       const patternCap = /[0-9]{5}/ 
       const patternEmail= /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-      const patternPassword = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+      const patternPassword = /[A-Za-z]{2,}/;
+// /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
       function registrazione(){
         
         let nome = document.getElementById("nome").value;
