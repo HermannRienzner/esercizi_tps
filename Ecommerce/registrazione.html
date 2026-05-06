@@ -6,44 +6,76 @@
     <script src="Ecommerce.js"></script>
   </head>
   <body>
-    <p>inserisci il nome</p>
-    <input type="text" id="nome" required>
-    <p id="errnome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
+    <div id="divregistrazione"
+      <p>inserisci il nome</p>
+      <input type="text" id="nome" required>
+      <p id="errnome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
 
-    <p>inserisci il cognome</p>
-    <input type="text" id="cognome" required>
-    <p id="errcognome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
+      <p>inserisci il cognome</p>
+      <input type="text" id="cognome" required>
+      <p id="errcognome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
 
-    <p>inserisci il cap</p>
-    <input type="text" id="cap" required>
-    <p id="errcap" style="color: red; visibility: hidden;"> devi inserire cinque numeri </p>
+      <p>inserisci il cap</p>
+      <input type="text" id="cap" required>
+      <p id="errcap" style="color: red; visibility: hidden;"> devi inserire cinque numeri </p>
 
-    <p>inserisci l'indirizzo</p>
-    <input type="text" id="indirizzo" required>
-    <p id="errindirizzo" style="color: red; visibility: hidden;">l'indirizzo presenta le parti necessarie per la validazione</p>
-
+      <p>inserisci l'indirizzo</p>
+      <input type="text" id="indirizzo" required>
+      <p id="errindirizzo" style="color: red; visibility: hidden;">l'indirizzo presenta le parti necessarie per la validazione</p>
+    </div>
 
     <p>inserisci l'e-mail</p>
     <input type="text" id="email" required>
     <p id="erremail" style="color: red; visibility: hidden;">l'email presenta le parti necessarie per la validazione</p>
     
     <p>inserisci la password</p>
-    <input type="text" id="password">
+    <input type="password" id="password">
     <p id="errpassword" style="color: red; visibility: hidden;">la password presenta le parti necessarie per la validazione</p>
 
-    <button onclick="registrazione()">registrati</button>
+    <button onclick="RoL()">registrati</button>
+    <p id="errgenerico" style="color: red; visibility: hidden;">campi non inseriti correttamente</p>
     
     <script>
       let oggetto = {
         nome: "", cognome: "", cap: 0, indirizzo: "", email: "", password: ""
       }
-      const patternTesto = /[A-Za-z]{2,}/;
-      const patternCap = /[0-9]{5}/ 
-      const patternEmail= /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-      const patternPassword = /[A-Za-z]{2,}/;
-// /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+      const patternTesto = /^[A-Za-z]{2,}$/;
+      const patternCap = /^[0-9]{5}$/; 
+      const patternEmail= /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      const patternPassword = /^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
+
+      if(localStorage.getItem("datiutente") != null){
+        document.getElementById("divregistrazione").style.display = "none";
+      }
+
+      function RoL (){
+        if(localStorage.getItem("datiutente") == null){
+          registrazione();
+        }
+        else{
+          login();
+        }
+      }
+
+      function login(){
+        let controllodati = JSON.parse(localStorage.getItem("datiutente"));
+
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if(email == controllodati.email && password == controllodati.password){
+            location.href = "https://hermannrienzner.github.io/esercizi_tps/Ecommerce/home.html"
+            document.getElementById("errgenerico").style.visibility = "hidden";
+          }
+        else{
+          document.getElementById("errgenerico").style.visibility = "visible";
+        }
+      }
+
       function registrazione(){
         
+        let valido = true;
+
         let nome = document.getElementById("nome").value;
         let cognome = document.getElementById("cognome").value
         let cap = document.getElementById("cap").value;
@@ -57,6 +89,7 @@
         }
         else{
           document.getElementById("errnome").style.visibility = "visible";
+          valido = false
         }
         if(patternTesto.test(cognome)){
           utente.cognome = cognome;
@@ -64,20 +97,23 @@
         }
         else{
           document.getElementById("errcognome").style.visibility = "visible";
+          valido = false
         }
-        if(patternTesto.test(indirizzo)){
+        if(indirizzo.length >= 3){
           utente.indirizzo = indirizzo;
           document.getElementById("errindirizzo").style.visibility = "hidden";
         }
         else{
           document.getElementById("errindirizzo").style.visibility = "visible";
+          valido = false
         }        
         if(patternCap.test(cap)){
-          oggetto.cap = cap;
+          utente.cap = cap;
           document.getElementById("errcap").style.visibility = "hidden";
         }
         else{
           document.getElementById("errcap").style.visibility = "visible";
+          valido = false
         }
         if(patternEmail.test(email)){
           utente.email = email;
@@ -85,6 +121,7 @@
         }
         else{
           document.getElementById("erremail").style.visibility = "visible";
+          valido = false
         }
         if(patternPassword.test(password)){
           utente.password = password;
@@ -92,9 +129,11 @@
         }
         else{
           document.getElementById("errpassword").style.visibility = "visible";
+          valido = false
         }
-
-        console.log(utente.nome);
+        if(valido == true){
+          localStorage.setItem("datiutente", JSON.stringify(utente));
+        }
       }
     </script>
   </body>
