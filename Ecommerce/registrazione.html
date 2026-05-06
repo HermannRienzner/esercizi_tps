@@ -4,48 +4,50 @@
       Registrazione
     </title>
     <script src="Ecommerce.js"></script>
+    <link rel="stylesheet" href="https://hermannrienzner.github.io/esercizi_tps/Ecommerce/registrazione.css">
   </head>
-  <body>
-    <div id="divregistrazione"
-      <p>inserisci il nome</p>
-      <input type="text" id="nome" required>
-      <p id="errnome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
+  <body class="pagina">
+    <div class="container">
+      <div id="divregistrazione">
+        <p>inserisci il nome</p>
+        <input type="text" id="nome" required>
+        <p id="errnome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
 
-      <p>inserisci il cognome</p>
-      <input type="text" id="cognome" required>
-      <p id="errcognome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
+        <p>inserisci il cognome</p>
+        <input type="text" id="cognome" required>
+        <p id="errcognome" style="color: red; visibility: hidden;">devi inserire due lettere o più</p>
 
-      <p>inserisci il cap</p>
-      <input type="text" id="cap" required>
-      <p id="errcap" style="color: red; visibility: hidden;"> devi inserire cinque numeri </p>
+        <p>inserisci il cap</p>
+        <input type="text" id="cap" required>
+        <p id="errcap" style="color: red; visibility: hidden;"> devi inserire cinque numeri </p>
 
-      <p>inserisci l'indirizzo</p>
-      <input type="text" id="indirizzo" required>
-      <p id="errindirizzo" style="color: red; visibility: hidden;">l'indirizzo presenta le parti necessarie per la validazione</p>
-    </div>
+        <p>inserisci l'indirizzo</p>
+        <input type="text" id="indirizzo" required>
+        <p id="errindirizzo" style="color: red; visibility: hidden;">l'indirizzo presenta le parti necessarie per la validazione</p>
+      </div>
 
-    <p>inserisci l'e-mail</p>
-    <input type="text" id="email" required>
-    <p id="erremail" style="color: red; visibility: hidden;">l'email presenta le parti necessarie per la validazione</p>
-    
-    <p>inserisci la password</p>
-    <input type="password" id="password">
-    <p id="errpassword" style="color: red; visibility: hidden;">la password presenta le parti necessarie per la validazione</p>
+      <p>inserisci l'e-mail</p>
+      <input type="text" id="email" required>
+      <p id="erremail" style="color: red; visibility: hidden;">l'email presenta le parti necessarie per la validazione</p>
+      
+      <p>inserisci la password</p>
+      <input type="password" id="password">
+      <p id="errpassword" style="color: red; visibility: hidden;">la password presenta le parti necessarie per la validazione</p>
 
-    <button onclick="RoL()">registrati</button>
-    <p id="errgenerico" style="color: red; visibility: hidden;">campi non inseriti correttamente</p>
-    
+      <button id = "bottone" onclick="RoL()">registrati</button>
+      <p id="errgenerico" style="color: red; visibility: hidden;">campi non inseriti correttamente</p>
+    </div>  
     <script>
-      let oggetto = {
-        nome: "", cognome: "", cap: 0, indirizzo: "", email: "", password: ""
-      }
       const patternTesto = /^[A-Za-z]{2,}$/;
       const patternCap = /^[0-9]{5}$/; 
       const patternEmail= /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
       const patternPassword = /^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
-
-      if(localStorage.getItem("datiutente") != null){
-        document.getElementById("divregistrazione").style.display = "none";
+      
+      window.onload = function(){
+        if(localStorage.getItem("datiutente") != null){
+          document.getElementById("divregistrazione").style.display = "none";
+          document.getElementById("bottone").textContent = "login";
+        }
       }
 
       function RoL (){
