@@ -11,7 +11,21 @@
       <a href="https://hermannrienzner.github.io/esercizi_tps/Ecommerce/assistenza.html">Assistenza</a>
       <a href="https://hermannrienzner.github.io/esercizi_tps/Ecommerce/cronologia.html">Cronologia ordini</a>
     </div>
+    <div>
+      <p id="risultato file"> </p>
+    </div>
 
     <div id="prodotti"></div>
+    <script>
+      async function leggiCSV() {
+        const response = await fetch("https://raw.githubusercontent.com/hermannrienzner/esercizi_tps/Ecommerce/prodotti.csv");
+
+        const testo = await response.text();
+
+        console.log(testo);
+      }
+
+      leggiCSV();
+    </script>
   </body>
 </html>
