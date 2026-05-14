@@ -17,15 +17,27 @@
 
     <div id="prodotti"></div>
     <script>
+      let dati
+
       async function leggiCSV() {
         const response = await fetch("https://raw.githubusercontent.com/HermannRienzner/esercizi_tps/main/Ecommerce/prodotti.csv");
 
         const testo = await response.text();
 
         console.log(testo);
+
+        const matrice = testo.trim().split(/\r?\n/).map(riga => riga.split(","));
+        
+        return matrice;
       }
 
-      leggiCSV();
-    </script>
+      window.onload = async function(){
+        dati = await leggiCSV();
+      }
+
+      console.log(dati);
+      
+
+</script>
   </body>
 </html>
