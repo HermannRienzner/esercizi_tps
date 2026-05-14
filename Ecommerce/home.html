@@ -17,7 +17,6 @@
 
     <div id="prodotti"></div>
     <script>
-      let dati
 
       async function leggiCSV() {
         const response = await fetch("https://raw.githubusercontent.com/HermannRienzner/esercizi_tps/main/Ecommerce/prodotti.csv");
@@ -37,7 +36,20 @@
 
       console.log(dati);
       
+      for(let i = 1; i < dati.length; i++){
+        const divprodotti = document.createElement("div");
+        
+        const textprodotti = document.createElement("p");
+        textprodotti.textContent = dati[i][0] + "\n" + dati[i][2] + "\n" + dati[i][4];
+        
+        const imgprodotti = document.createElement("img");
+        imgprodotti.src = dati[i][3];
 
-</script>
+        divprodotti.appendChild(imgprodotti);
+        divprodotti.appendChild(textprodotti);
+
+        document.getElementById("prodotti").appendChild(divprodotti);
+      }
+    </script>
   </body>
 </html>
