@@ -1,0 +1,45 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="dettagli">
+        <input type="button" id="aggiungi" onclick="aggiungi()">
+            
+        </div>
+        <script>
+            let div = document.getElementById("dettagli").innerHTML;
+            let dati = JSON.parse(localStorage.getItem("info"));
+            let immagine = document.createElement("img");
+           
+            immagine.src = dati[3];
+            div.appendChild(immagine);
+
+            for(let j = 0; j < 5; j++){
+            
+                let p = document.createElement("p");
+                let br = document.createElement("br");
+                
+                if(j == 0 || j == 1 || j == 2|| j == 4){
+                    p.textContent = dati[i][j];
+                    div.appendChild(p);
+                    div.appendChild(br);
+                }
+            }
+
+            function aggiungi (){
+                if(JSON.parse(localStorage.getItem("carrello")) == null){
+                    let carrello = [];
+                    carrello.push(dati);
+                    localStorage.setItem(carrello, JSON.stringify(carrello));
+                }
+                else{
+                    let carrello = JSON.parse(localStorage.getItem("carrello"));
+                    carrello.push(dati);
+                    localStorage.setItem(carrello, JSON.stringify(carrello));
+                }
+            }
+
+        </script>
+    </body>
+</html>

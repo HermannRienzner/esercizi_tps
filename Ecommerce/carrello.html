@@ -13,5 +13,29 @@
       <a href="assistenza.html">Assistenza</a>
       <a href="cronologia.html">Cronologia ordini</a>
     </div>
+    <table id="outputcarrello">
+
+    </table>
+
+    </div>
+    <script>
+      window.onload = function () {
+        let carrello = JSON.parse(localStorage.getItem("carrello"));
+        let table = document.getElementById("outputcarrello");
+
+        for(let i = 0; i < carrello.length; i++){
+          let tr = document.createElement("td");
+          for(let j = 0; j < carrello[i].length; j ++){
+            if(j != 3){
+              let td = document.createElement("td");
+              td.textContent = carrello[i][j];
+              tr.appendChild(td);
+            }
+            carrello.appendChild(tr);      
+          }
+
+        }
+      }
+    </script>
   </body>
 </html>

@@ -20,6 +20,11 @@
 
       let dati;
 
+      function paginaprodotto(indice){
+        localStorage.setItem(info, JSON.stringify(dati[i]));
+        location.href = "https://hermannrienzner.github.io/esercizi_tps/Ecommerce/paginaprodotto.html";
+      }
+
       async function leggiCSV() {
         const response = await fetch("https://raw.githubusercontent.com/HermannRienzner/esercizi_tps/main/Ecommerce/prodotti.csv");
 
@@ -36,8 +41,9 @@
         dati = await leggiCSV();
 
         for(let i = 1; i < dati.length; i++){
-          let div = document.createElement("div");
+          let div = document.createElement("div");  
           
+          div.onclick(paginaprodotto(i));
 
           for(let j = 0; j < 5; j++){
             
@@ -50,7 +56,7 @@
               div.appendChild(img);
             }
             
-            if(j == 0 || j == 1 || j == 2 || j == 4){
+            if(j == 0 || j == 1 || j == 4){
               p.textContent = dati[i][j];
               div.appendChild(p);
               div.appendChild(br);
