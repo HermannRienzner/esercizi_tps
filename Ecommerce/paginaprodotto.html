@@ -8,11 +8,10 @@
             
         </div>
         <script>
-            let div = document.getElementById("dettagli").innerHTML;
             let dati = JSON.parse(localStorage.getItem("info"));
             let immagine = document.createElement("img");
-           
             immagine.src = dati[3];
+            
             document.getElementById("dettagli").appendChild(immagine);
 
             for(let j = 0; j < 5; j++){
@@ -22,8 +21,8 @@
                 
                 if(j != 3){
                     p.textContent = dati[i][j];
-                    div.appendChild(p);
-                    div.appendChild(br);
+                    document.getElementById("dettagli").appendChild(p);
+                    document.getElementById("dettagli").appendChild(br);
                 }
             }
 
