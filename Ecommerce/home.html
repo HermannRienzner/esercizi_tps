@@ -34,23 +34,23 @@
 
       window.onload = async function(){
         dati = await leggiCSV();
-      }
 
-      console.log(dati);
-      
-      for(let i = 1; i < dati.length; i++){
-        const divprodotti = document.createElement("div");
+        for(let i = 1; i < dati.length; i++){
+          const divprodotti = document.createElement("div");
         
-        const textprodotti = document.createElement("p");
-        textprodotti.textContent = dati[i][0] + "\n" + dati[i][2] + "\n" + dati[i][4];
+          const textprodotti = document.createElement("p");
+          textprodotti.textContent = dati[i][0] + "\n" + dati[i][2] + "\n" + dati[i][4];
         
-        const imgprodotti = document.createElement("img");
-        imgprodotti.src = dati[i][3];
+          const imgprodotti = document.createElement("img");
+          imgprodotti.src = dati[i][3];
 
-        divprodotti.appendChild(imgprodotti);
-        divprodotti.appendChild(textprodotti);
+          divprodotti.appendChild(imgprodotti);
+          divprodotti.appendChild(textprodotti);
 
-        document.getElementById("prodotti").appendChild(divprodotti);
+          document.getElementById("prodotti").appendChild(divprodotti);
+
+          console.log(dati);
+        }
       }
     </script>
   </body>
