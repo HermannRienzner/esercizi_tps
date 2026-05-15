@@ -42,8 +42,7 @@
 
         for(let i = 1; i < dati.length; i++){
           let div = document.createElement("div");  
-          
-          div.onclick(paginaprodotto(i));
+          div.addEventListener(onclick, paginaprodotto(i))
 
           for(let j = 0; j < 5; j++){
             
