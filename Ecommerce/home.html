@@ -36,11 +36,12 @@
         dati = await leggiCSV();
 
         for(let i = 1; i < dati.length; i++){
+          let div = document.createElement("div");
+          let p = document.createElement("p");
+          let img = document.createElement("img");
+          let br = document.createElement("br");
+
           for(let j = 0; j < 5; j++){
-            let div = document.createElement("div");
-            let p = document.createElement("p");
-            let img = document.createElement("img");
-            let br = document.createElement("br");
             
             if(j == 0){
               img.src = dati[i][3];
@@ -54,7 +55,7 @@
             }
           }
 
-          document.getElementById("prodotti").appendChild(divprodotti);
+          document.getElementById("prodotti").appendChild(div);
 
           console.log(dati);
         }
