@@ -25,25 +25,26 @@
         if(carrello == []){
           JSON.stringify(localStorage.setItem("carrello", carrello));
         }
-        
+
         let table = document.getElementById("outputcarrello");
 
         for(let i = 0; i < carrello.length; i++){
           let tr = document.createElement("tr");
-          let td = document.createElement("td");
+          let tdimg = document.createElement("td");
           let immagine = document.createElement("img");
 
           immagine.src = carrello[i][3];
+          tr.appendChild(tdimg);
           
           for(let j = 0; j < carrello[i].length; j ++){
             if(j != 3){
               let td = document.createElement("td");
               td.textContent = carrello[i][j];
               tr.appendChild(td);
-              table.appendChild(tr); 
             }   
           }
 
+          table.appendChild(tr); 
         }
       }
     </script>
