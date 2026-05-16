@@ -12,7 +12,9 @@
         </div>
         
         <div id="dettagli">
-        <input type="button" id="aggiungi" onclick="aggiungi()">
+            <button id="aggiungi" onclick="aggiungi()"> 
+                Aggiungi al carrello 
+            </button>
         </div>
         
         <script>
@@ -33,16 +35,9 @@
             }
 
             function aggiungi (){
-                if(JSON.parse(localStorage.getItem("carrello")) == null){
-                    let carrello = [];
-                    carrello.push(dati);
-                    localStorage.setItem(carrello, JSON.stringify(carrello));
-                }
-                else{
-                    let carrello = JSON.parse(localStorage.getItem("carrello"));
-                    carrello.push(dati);
-                    localStorage.setItem(carrello, JSON.stringify(carrello));
-                }
+                let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+                carrello.push(dati);
+                localStorage.setItem("carrello", JSON.stringify(carrello));
             }
 
         </script>
