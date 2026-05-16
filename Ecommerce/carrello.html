@@ -20,7 +20,12 @@
     </div>
     <script>
       window.onload = function () {
-        let carrello = JSON.parse(localStorage.getItem("carrello"));
+        let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+
+        if(carrello == []){
+          JSON.stringify(localStorage.setItem("carrello", carrello));
+        }
+        
         let table = document.getElementById("outputcarrello");
 
         for(let i = 0; i < carrello.length; i++){
