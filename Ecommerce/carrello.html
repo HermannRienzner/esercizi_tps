@@ -25,6 +25,11 @@
 
         for(let i = 0; i < carrello.length; i++){
           let tr = document.createElement("tr");
+          let td = document.createElement("td");
+          let immagine = document.createElement("img");
+
+          immagine.src = carrello[i][3];
+          
           for(let j = 0; j < carrello[i].length; j ++){
             if(j != 3){
               let td = document.createElement("td");
