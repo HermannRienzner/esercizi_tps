@@ -22,10 +22,6 @@
       window.onload = function () {
         let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
 
-        if(carrello == []){
-          JSON.stringify(localStorage.setItem("carrello", carrello));
-        }
-
         let table = document.getElementById("outputcarrello");
 
         for(let i = 0; i < carrello.length; i++){
@@ -34,6 +30,7 @@
           let immagine = document.createElement("img");
 
           immagine.src = carrello[i][3];
+          tdimg.appendChild(immagine);
           tr.appendChild(tdimg);
           
           for(let j = 0; j < carrello[i].length; j ++){
