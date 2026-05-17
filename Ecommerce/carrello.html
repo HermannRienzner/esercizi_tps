@@ -81,9 +81,14 @@
                 interagisciprodotto(k, "compra");
               }
             })
-            
+
             div.appendChild(compratutto);
 
+          }
+          else{
+            let div = document.getElementById("compracarrello");
+            div.innerHTML = "";   
+            div.textContent = "il carrello è vuoto";         
           }
         }
       }
