@@ -50,14 +50,14 @@
                 let cancella = document.createElement("button");
                 cancella.textContent = "rimuovi dal carrello";
                 cancella.value = i;
-                cancella.id = "cancella";
+                cancella.className = "cancella";
                 cancella.addEventListener("click", () => interagisciprodotto(cancella.value, ""));
                 td.appendChild(cancella);
 
                 let compra = document.createElement("button");
                 compra.textContent = "aquista";
                 compra.value = i;
-                compra.id = "compra";
+                compra.className = "compra";
                 compra.addEventListener("click", () => interagisciprodotto(compra.value, "compra"));
                 td.appendChild(compra);
 
