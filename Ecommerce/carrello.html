@@ -20,30 +20,87 @@
     </div>
     <script>
       window.onload = function () {
-        let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+        creapagina();
+      }
 
+      function creapagina(){
+        let carrello = JSON.parse(localStorage.getItem("carrello"));
         let table = document.getElementById("outputcarrello");
+        table = "";
+        
+        if(carrello != null){
 
-        for(let i = 0; i < carrello.length; i++){
-          let tr = document.createElement("tr");
-          let tdimg = document.createElement("td");
-          let immagine = document.createElement("img");
+          for(let i = 0; i < carrello.length; i++){
+            let tr = document.createElement("tr");
+            let tdimg = document.createElement("td");
+            let immagine = document.createElement("img");
 
-          immagine.src = carrello[i][3];
-          tdimg.appendChild(immagine);
-          tr.appendChild(tdimg);
-          
-          for(let j = 0; j < carrello[i].length; j ++){
-            if(j != 3){
-              let td = document.createElement("td");
-              td.textContent = carrello[i][j];
-              tr.appendChild(td);
-            }   
-          }
+            immagine.src = carrello[i][3];
+            tdimg.appendChild(immagine);
+            tr.appendChild(tdimg);
+            
+            for(let j = 0; j <= carrello[i].length; j ++){
+              if(j != 3 && j < carrello.length){
+                let td = document.createElement("td");
+                td.textContent = carrello[i][j];
+              }   
+              if(j == carrello.length){
+                let cancella = document.createElement("button");
+                cancella.textContent = "rimuovi dal carrello";
+                cancella.value = i;
+                cancella.id = "cancella";
+                cancella.addEventListener("click", () => interagisciprodotto(cancella.value, ""));
+                td.appendChild(cancella);
 
-          table.appendChild(tr); 
+                let compra = document.createElement("button");
+                compra.textContent = "aquista";
+                compra.value = i;
+                compra.id = "compra";
+                compra.addEventListener("click", () => interagisciprodotto(compra.value, "compra"));
+                td.appendChild(compra);
+
+                tr.appendChild(td)
+              }
+            }
+
+            table.appendChild(tr); 
+          }     
+
+          let compratutto = document.createElement("button");
+          compratutto.textContent = "aquista carrello";
+          compratutto.id = "compratutto";
+          compratutto.addEventListener("click", function (){
+            for(let k = 0; k < carrello.length; k ++){
+              interagisciprodotto(k, "compra");
+            }
+          })
+          document.getElementsByTagName("body").appendChild(compratutto);
+
         }
       }
+
+      function interagisciprodotto(indice, comando){
+        let carrello = JSON.parse(localStorage.getItem("carrello"));
+        for(let i = indice; i < carrello.length; i++){
+          if( i != carrello.length - 1){
+            carrello[i] = carrello[i + 1];
+          }
+          else if (i = carrello.length - 1){
+            carrello[i] = null;
+          }
+        }
+
+        if(comando == "compra"){
+          let comprati = JSON.parse(localStorage.getItem("comprati")) || [];
+          comprati.push(carrello[indice]);
+          JSON.stringify(localStorage.setItem("comprati", comprati));
+        }
+
+        JSON.stringify(localStorage.setItem("carrello", carrello));
+
+        creapagina();
+
+      };
     </script>
   </body>
 </html>
