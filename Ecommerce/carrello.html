@@ -40,8 +40,9 @@
             tr.appendChild(tdimg);
             
             for(let j = 0; j <= carrello[i].length; j ++){
+              let td = document.createElement("td");
+              
               if(j != 3 && j < carrello.length){
-                let td = document.createElement("td");
                 td.textContent = carrello[i][j];
               }   
               if(j == carrello.length){
