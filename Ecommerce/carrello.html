@@ -16,9 +16,7 @@
     <table id="outputcarrello">
 
     </table>
-    <div id="compracarrello"
-
-    </div>
+    <div id="compracarrello"></div>
 
     </div>
     <script>
@@ -45,10 +43,10 @@
             for(let j = 0; j < carrello[i].length + 1; j ++){
               let td = document.createElement("td");
               
-              if(j != 3 && j < carrello.length){
+              if(j != 3 && j < carrello[i].length){
                 td.textContent = carrello[i][j];
               }   
-              if(j == carrello.length){
+              if(j == carrello[i].length){
                 let cancella = document.createElement("button");
                 cancella.textContent = "rimuovi dal carrello";
                 cancella.value = i;
@@ -78,7 +76,7 @@
             
             compratutto.addEventListener("click", function (){
               for(let k = 0; k < carrello.length; k ++){
-                interagisciprodotto(k, "compra");
+                interagisciprodotto(0, "compra");
               }
             })
 
@@ -95,13 +93,14 @@
 
       function interagisciprodotto(indice, comando){
         let carrello = JSON.parse(localStorage.getItem("carrello"));
-        carrello.splice(indice, 1);
 
         if(comando == "compra"){
           let comprati = JSON.parse(localStorage.getItem("comprati")) || [];
           comprati.push(carrello[indice]);
           localStorage.setItem("comprati", JSON.stringify(comprati));
         }
+
+        carrello.splice(indice, 1);
 
         localStorage.setItem("carrello", JSON.stringify(carrello));
 

@@ -1,0 +1,106 @@
+/* ===== TABELLA ===== */
+
+#outputcarrello{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== RIGHE ===== */
+
+#outputcarrello tr{
+    border-bottom: 1px solid #ddd;
+}
+
+/* ===== CELLE ===== */
+
+#outputcarrello td{
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* ===== IMMAGINI ===== */
+
+#outputcarrello img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ===== BOTTONI ===== */
+
+#outputcarrello button,
+#compratutto{
+
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    margin: 5px;
+}
+
+/* ===== RIMUOVI ===== */
+
+#cancella{
+    background: #ff5c5c;
+    color: white;
+}
+
+#cancella:hover{
+    background: #e04848;
+}
+
+/* ===== COMPRA ===== */
+
+#compra,
+#compratutto{
+    background: #4a90e2;
+    color: white;
+}
+
+#compra:hover,
+#compratutto:hover{
+    background: #357abd;
+}
+
+/* ===== COMPRA TUTTO ===== */
+
+#compracarrello{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width: 900px){
+
+    #outputcarrello,
+    #outputcarrello tbody,
+    #outputcarrello tr,
+    #outputcarrello td{
+
+        display: block;
+        width: 100%;
+    }
+
+    #outputcarrello tr{
+        margin-bottom: 25px;
+        background: white;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    #outputcarrello td{
+        border-bottom: 1px solid #eee;
+    }
+}
