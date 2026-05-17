@@ -16,6 +16,9 @@
     <table id="outputcarrello">
 
     </table>
+    <div id="compracarrello"
+
+    </div>
 
     </div>
     <script>
@@ -39,7 +42,7 @@
             tdimg.appendChild(immagine);
             tr.appendChild(tdimg);
             
-            for(let j = 0; j <= carrello[i].length; j ++){
+            for(let j = 0; j < carrello[i].length + 1; j ++){
               let td = document.createElement("td");
               
               if(j != 3 && j < carrello.length){
@@ -67,16 +70,19 @@
             table.appendChild(tr); 
           }     
           if(carrello.length >= 1){
+            let div = document.getElementById("compracarrello");
+            div.innerHTML = "";
             let compratutto = document.createElement("button");
             compratutto.textContent = "aquista carrello";
             compratutto.id = "compratutto";
-            compratutto.addEventListener("click", function (){
             
-            for(let k = 0; k < carrello.length; k ++){
-              interagisciprodotto(k, "compra");
-            }
-          })
-          document.body.appendChild(compratutto);
+            compratutto.addEventListener("click", function (){
+              for(let k = 0; k < carrello.length; k ++){
+                interagisciprodotto(k, "compra");
+              }
+            })
+            
+            div.appendChild(compratutto);
 
           }
         }
