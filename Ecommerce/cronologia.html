@@ -22,14 +22,14 @@
         let table = document.getElementById("outputcarrello");
         let comprati = JSON.parse(localStorage.getItem("comprati"));
 
-        for(let i = 0; i < carrello.length; i++){
+        for(let i = 0; i < comprati.length; i++){
             let tr = document.createElement("tr");
             
-            for(let j = 0; j < carrello[i].length + 1; j ++){
+            for(let j = 0; j < comprati[i].length + 1; j ++){
               
-              if(j != 3 && j < carrello[i].length){
+              if(j != 3 && j < comprati[i].length){
                 let td = document.createElement("td");
-                let p = carrello[i][j];
+                let p = comprati[i][j];
                 td.appendChild(p);
               }   
               
