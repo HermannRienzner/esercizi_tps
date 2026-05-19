@@ -44,7 +44,8 @@
               let td = document.createElement("td");
               
               if(j != 3 && j < carrello[i].length){
-                td.textContent = carrello[i][j];
+                let p = carrello[i][j];
+                td.appendChild(p);
               }   
               if(j == carrello[i].length){
                 let cancella = document.createElement("button");
