@@ -27,11 +27,13 @@
             
             for(let j = 0; j < comprati[i].length + 1; j ++){
               
+              let td = document.createElement("td");
+
               if(j != 3 && j < comprati[i].length){
-                let td = document.createElement("td");
-                let p = comprati[i][j];
-                td.appendChild(p);
+                td.textContent = comprati[i][j];
               }   
+
+              tr.appendChild(td);
               
             }
 
